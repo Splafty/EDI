@@ -17,7 +17,7 @@ Electronic Data Interchange, name of the course).
 sure that each student in the group has their real name and surname entered in the
 github settings.  
 
-<br>(❗) 4️. You can make changes to project files on github before the deadline. If you make
+<br>(❗❗❗) 4️. You can make changes to project files on github before the deadline. If you make
 changes to the project files after the deadline, the final grade for the project will be
 reduced by 20 points.  
 
