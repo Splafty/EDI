@@ -1,7 +1,7 @@
 # EDI
 Electronic Data Interchange
 
-EDI - FINAL GROUP PROJECT ✔️ ❌  
+EDI - FINAL GROUP PROJECT  
 The aim of the project is to develop a dynamic website presenting data downloaded from an Internet
 service.  
 <br>(✔️) 1️. Create a project team:  
