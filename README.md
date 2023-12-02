@@ -5,7 +5,7 @@ EDI - FINAL GROUP PROJECT
 The aim of the project is to develop a dynamic website presenting data downloaded from an Internet
 service.  
 <br>(✔️) 1️. Create a project team:  
-a. Create a group of 3 students.  
+a. Create a group of 3-4 students.  
 b. Select a group leader.  
 c. Register the project team on Moodle (group leader only). If you register the team  
 after the deadline, the final grade for the project will be reduced by 20 points.  
