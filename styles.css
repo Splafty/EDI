@@ -30,6 +30,14 @@ body
     padding: 20px 10%;
 }
 
+.sub-title
+{
+    margin-top: 80px;
+    font-size: 66px;
+    font-weight: 600;
+    color: white;
+}
+
 /* <!-- -------------navigation menu------------- --> */
 header
 {
@@ -144,11 +152,86 @@ header ul li a:hover::after
     background-color: white;
 }
 
+/* <!-- -------------ranking------------- --> */
+#ranking 
+{
+    height: 100vh;
+    background-color: #041929;
+    color: white;
+}
+
+#data-title
+{
+    text-align: left;
+}
+
+table 
+{
+    border: 3px solid lightgrey;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td 
+{
+    border: 1px solid lightgray;
+    padding: 11px;
+}
+
+th 
+{
+    text-align: center;
+}
+
+td
+{
+    font-size: 16px;
+}
+
+/* <!-- -------------charts------------- --> */
+#charts 
+{
+    height: 100vh;
+    background-color: blue;
+    color: white;
+}
+
+/*.format-information
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+
+.format-information div
+{
+    border-radius: 10px;
+    background: rgb(35, 35, 35);
+    padding: 30px;
+    transition: 0.5s;
+}
+
+.format-information div h2
+{
+    font-size: 33px;
+    font-weight: 550;
+    margin-bottom: 15px;
+}
+
+.format-information div:hover
+{
+    background: rgb(75, 145, 25);
+    transform: translateY(-10px);
+    cursor: pointer;
+} */
+
 /* <!-- -------------about------------- --> */
 #about 
 {
     height: 100vh;
-    background-color: #041929;
+    background-color: green;
     color: white;
 }
 
@@ -225,81 +308,6 @@ header ul li a:hover::after
 .tab-contents.active-tab
 {
     display: block;
-} */
-
-/* <!-- -------------table------------- --> */
-#data 
-{
-    height: 100vh;
-    background-color: red;
-    color: white;
-}
-
-#data-title
-{
-    text-align: left;
-}
-
-/* table 
-{
-    border: 3px solid lightgrey;
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-}
-
-th, td 
-{
-    border: 1px solid lightgray;
-    padding: 11px;
-}
-
-th 
-{
-    text-align: center;
-}
-
-td
-{
-    font-size: 16px;
-} */
-
-/* <!-- -------------format info------------- --> */
-#charts 
-{
-    height: 100vh;
-    background-color: blue;
-    color: white;
-}
-
-/*.format-information
-{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
-}
-
-.format-information div
-{
-    border-radius: 10px;
-    background: rgb(35, 35, 35);
-    padding: 30px;
-    transition: 0.5s;
-}
-
-.format-information div h2
-{
-    font-size: 33px;
-    font-weight: 550;
-    margin-bottom: 15px;
-}
-
-.format-information div:hover
-{
-    background: rgb(75, 145, 25);
-    transform: translateY(-10px);
-    cursor: pointer;
 } */
 
 /* <!-- -------------footer------------- --> */
