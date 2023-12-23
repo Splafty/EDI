@@ -1,3 +1,5 @@
+/*#0C0D12*/
+
 /* <!-- -------------general------------- --> */
 *
 {
@@ -29,42 +31,65 @@ body
 }
 
 /* <!-- -------------navigation menu------------- --> */
-nav
+header
 {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,rgba(255,255,255,0)), color-stop(60%, #061b2c));
+    padding: 10px 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: right;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; 
+    z-index: 100000;
 }
 
-nav ul li
+header #logo
+{
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 30px;
+    margin: 5px 20px;
+    transition: 0.5s;
+}
+
+header #logo:hover
+{
+    color: rgb(43, 139, 230);
+}
+
+
+header ul li
 {
     display: inline-block;
     list-style: none;
     margin: 10px 20px;
 }
 
-nav ul li a
+header ul li a
 {
     color: white;
     text-decoration: none;
+    font-weight: 600;
     font-size: 20px;
     position: relative;
 }
 
-nav ul li a::after
+header ul li a::after
 {
     content: "";
     width: 0;
     height: 3px;
-    background: #85FF25;
+    background: white;
     position: absolute;
     left: 0;
     bottom: -6px;
     transition: 0.5s;
 }
 
-nav ul li a:hover::after
+header ul li a:hover::after
 {
     width: 100%;
 }
@@ -74,39 +99,57 @@ nav ul li a:hover::after
 {
     width: 100%;
     height: 100vh;
-    background-image: url(images/background.jpg);
+    background-image: url(images/background5.png);
     background-size: cover;
     background-position: center;
 }
 
 .home-text 
 {
-    font-size: 33px;
-    margin-top: 10%;
-}
+    width: 100%;
+    height: 100vw;
+    margin-top: 220px;
+    text-align: center;
+} 
 
 .home-text h1
 {
-    font-size: 66px;
-    margin-top: 20px;
+    font-size: 200px;
 }
 
-.home-text h1 span
+.home-text h2
 {
-    color: #85FF25;
+    font-size: 50px;
+    margin-bottom: 50px;
 }
 
-.home-text #subtitle
+.home-text a
 {
-    margin-top: 30px;
+    text-decoration: none;
+    font-weight: bold;
     font-size: 20px;
-    color: lightgray;
+    cursor: pointer;
+    padding: 20px 140px;
+    background-color: rgb(43, 139, 230);
+    color: white;
+    border-radius: 100px;
+    border-color: white;
+    transition: 0.5s;
+}
+
+.home-text a:hover
+{
+    transform: translateY(-10px);
+    color: rgb(43, 139, 230);
+    background-color: white;
 }
 
 /* <!-- -------------about------------- --> */
 #about 
 {
-    color: lightgray;
+    height: 100vh;
+    background-color: #041929;
+    color: white;
 }
 
 /* .row
@@ -187,7 +230,9 @@ nav ul li a:hover::after
 /* <!-- -------------table------------- --> */
 #data 
 {
-    color: lightgray;
+    height: 100vh;
+    background-color: red;
+    color: white;
 }
 
 #data-title
@@ -219,8 +264,15 @@ td
     font-size: 16px;
 } */
 
-/* <!-- -------------format info------------- -->
-.format-information
+/* <!-- -------------format info------------- --> */
+#charts 
+{
+    height: 100vh;
+    background-color: blue;
+    color: white;
+}
+
+/*.format-information
 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
@@ -298,7 +350,7 @@ td
 
 .footer-col-1 ul li a:hover
 {
-    color: #85FF25;
+    color: rgb(43, 139, 230);
 }
 
 /* <!-- -------footer-col-2------- --> */
@@ -339,8 +391,8 @@ td
 
 .footer-col-2 .search-button:hover
 {
-    color: #85FF25;
-    border-color: #85FF25;
+    color: rgb(43, 139, 230);
+    border-color: rgb(43, 139, 230);
 }
 
 /* <!-- -------footer-col-3------- --> */
@@ -365,5 +417,5 @@ td
 
 .footer-col-3 .social-media i:hover
 {
-    color: #85FF25;
+    color: rgb(43, 139, 230);
 }
