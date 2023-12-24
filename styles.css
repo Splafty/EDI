@@ -1,4 +1,15 @@
-/*#0C0D12*/
+/* <!-- -------------fonts------------- -->
+56 h1   Section title     font-weight: 600;
+24 h2   Subtitle
+16 a/p  Text
+*/
+
+/* <!-- -------------colors------------- -->
+Text            #ffffff     (white)
+Accent          #2b8be6     (light blue)
+Secondary       #2b2de6     (blue)
+Background      #041929     (dark blue)
+*/
 
 /* <!-- -------------general------------- --> */
 *
@@ -9,11 +20,6 @@
     box-sizing: border-box;
 }
 
-p
-{
-    font-size: 18px;
-}
-
 html
 {
     scroll-behavior: smooth;
@@ -21,8 +27,8 @@ html
 
 body
 {
-    background: black;
-    color: white;
+    background: #041929;
+    color: #ffffff;
 }
 
 .container
@@ -30,19 +36,32 @@ body
     padding: 20px 10%;
 }
 
-.sub-title
+p
+{
+    font-size: 16px;
+}
+
+.section-title
 {
     margin-top: 80px;
-    font-size: 66px;
+    font-size: 56px;
     font-weight: 600;
-    color: white;
+    text-align: left;
+}
+
+.subtitle
+{
+    margin-top: 4px;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
 }
 
 /* <!-- -------------navigation menu------------- --> */
 header
 {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,rgba(255,255,255,0)), color-stop(60%, #061b2c));
-    padding: 10px 10%;
+    padding: 20px 10%;
     position: fixed;
     top: 0;
     left: 0;
@@ -55,19 +74,17 @@ header
 
 header #logo
 {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 800;
     font-size: 30px;
-    margin: 5px 20px;
     transition: 0.5s;
 }
 
 header #logo:hover
 {
-    color: rgb(43, 139, 230);
+    color: #2b8be6;
 }
-
 
 header ul li
 {
@@ -78,7 +95,7 @@ header ul li
 
 header ul li a
 {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     font-size: 20px;
@@ -90,7 +107,7 @@ header ul li a::after
     content: "";
     width: 0;
     height: 3px;
-    background: white;
+    background: #ffffff;
     position: absolute;
     left: 0;
     bottom: -6px;
@@ -138,7 +155,7 @@ header ul li a:hover::after
     font-size: 20px;
     cursor: pointer;
     padding: 20px 140px;
-    background-color: rgb(43, 139, 230);
+    background-color: #2b8be6;
     color: white;
     border-radius: 100px;
     border-color: white;
@@ -147,7 +164,6 @@ header ul li a:hover::after
 
 .home-text a:hover
 {
-    transform: translateY(-10px);
     color: rgb(43, 139, 230);
     background-color: white;
 }
@@ -160,11 +176,6 @@ header ul li a:hover::after
     color: white;
 }
 
-#data-title
-{
-    text-align: left;
-}
-
 table 
 {
     border: 3px solid lightgrey;
@@ -173,20 +184,13 @@ table
     margin-top: 20px;
 }
 
-th, td 
+table th, td 
 {
     border: 1px solid lightgray;
     padding: 11px;
-}
-
-th 
-{
     text-align: center;
-}
-
-td
-{
     font-size: 16px;
+
 }
 
 /* <!-- -------------charts------------- --> */
@@ -231,8 +235,24 @@ td
 #about 
 {
     height: 100vh;
-    background-color: green;
+    background-color: #041929;
     color: white;
+}
+
+.grid-container 
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 40px;
+}
+
+.grid-item 
+{
+    background-color: #2b2de6;
+    border-radius: 20px;
+    padding: 148px;
+    font-size: 30px;
+    text-align: center;
 }
 
 /* .row
@@ -240,13 +260,6 @@ td
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-.sub-title
-{
-    font-size: 66px;
-    font-weight: 600;
-    color: white;
 }
 
 .tab-titles
@@ -321,7 +334,6 @@ td
 }
 
 #footer .container .row h2
-
 {
     margin-bottom: 30px;
     letter-spacing: 1px;
