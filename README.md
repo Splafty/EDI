@@ -21,6 +21,8 @@ github settings.
 changes to the project files after the deadline, the final grade for the project will be
 reduced by 20 points.  
 
+<br>(❗❗❗) MAKE REPOSITORY PUBLIC BEFORE DEADLINE!  
+
 <br>(✔️) 5. Using the mockaroo.com website, create an API (Application Programming Interface)
 that will allow you to download data in JSON format:  
 a. Find out how to create an API:  
