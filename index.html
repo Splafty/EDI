@@ -83,8 +83,12 @@
             <h2 class="subtitle">Wykresy bazujące na danych z API</h2>
         </div>
         <div class="charts-container">
-            <div class="chart1" id="chart1"></div>
-            <div class="chart2" id="chart2"></div>
+            <div id="chart1">
+                <canvas id="myChart1"></canvas>
+            </div>
+            <div id="chart2">
+                <canvas id="myChart2"></canvas>
+            </div>
         </div>
     </div>
 
@@ -148,7 +152,53 @@
     <script src="./script.js"></script>
     <!-- -------------font-awesome------------- -->
     <script src="https://kit.fontawesome.com/2d8fe6a7d0.js" crossorigin="anonymous"></script>
+    <!-- -----------------charts----------------- -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const chart1 = document.getElementById('myChart1');
+  
+    new Chart(chart1, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 2
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+ <!-- -----------------chart2----------------- -->    
+ <script>
+  const chart2 = document.getElementById('myChart2');
 
+  new Chart(chart2, {
+    type: 'doughnut',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 2
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
 </body>
 
 </html>

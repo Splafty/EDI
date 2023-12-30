@@ -58,6 +58,7 @@ fetchJSON();
 
 
 
+
 // // tworzenie tabeli
 // async function getJson() {
 //     const response = await fetch("https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0");

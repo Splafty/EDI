@@ -248,16 +248,22 @@ table td
     justify-content: space-between;
 }
     
-.chart1
+#chart1
 {
-    background-color: blueviolet;
+    background-color: white;
     width: 48.5%;
+    display: flex;
+    align-items: center;
 }
 
-.chart2
+
+#chart2
 {
-    background-color: red;
+    background-color: white;
     width: 48.5%;
+    display: flex;
+    align-items: center;
+    margin-left: 15%;
 }
 
 /*.format-information
