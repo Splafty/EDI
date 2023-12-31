@@ -316,7 +316,7 @@ table td
 }
 
 .strefa {
-    width: 10%;
+    width: 23%;
     background-color: rgb(68, 45, 16);
     height: 90%;
     padding: 5%;
@@ -331,12 +331,15 @@ table td
     transition: 0.3s;
 }
 
+/*
+
+
 .strefa:first-child {
     width: 55%;
 }
 
 
-
+*/
 
 
 
