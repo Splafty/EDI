@@ -10,14 +10,12 @@ sr.reveal(".home-text", {delay: 100, reset: false, origin: "top"});
 sr.reveal(".navigation-menu", {delay: 300, duration: 3000, reset: false, origin: "right"});
 
 
-
 // Function to fetch JSON data
 function fetchJSON() {
     fetch("https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0") // Fetch JSON data from the API
         .then(response => response.json()) // Convert the response into JSON format
         .then(data => {
             const items = data.slice(0, 10); // Take only the first 10 items for demonstration
-
             // Sort items by most 5_star_reviews
             items.sort((a, b) => b["num_5_star_reviews"] - a["num_5_star_reviews"]);
 
@@ -52,7 +50,45 @@ function fetchJSON() {
         .catch(error => console.error("Error fetching JSON data:", error)); // Log an error if fetching fails
 }
 
-fetchJSON();
+//fetchJSON()
+
+
+
+
+
+// sekcja about
+
+const osoby = document.querySelectorAll('.strefa')
+osoby.forEach(element => {
+    element.addEventListener('click', function(e) {
+        let allOsoby = document.querySelectorAll('.strefa')
+        Array.prototype.forEach.call(allOsoby, function(container) {
+            container.style.width = '10%'
+            var opis = container.querySelector(".article")
+            if(container.classList.contains('opened')){ 
+                opis.style.display = "block"
+            }
+            opis.style.display ="none"
+            container.classList.remove('opened')
+        })
+        e.target.style.width = '55%'
+        e.target.classList.add('opened')
+        var clickedOpis = e.target.querySelector(".article")
+        clickedOpis.style.display = "block"
+        
+        })
+    });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -67,7 +103,7 @@ fetchJSON();
 // }
 
 // let tables = ['first_name', 'last_name', 'num_5_star_reviews', 'total_websites_created', 'portfolio_link']
-// // total websites spacja jest i sie pierdoli tabelka
+// 
 
 // function createTables(dane){
 //     var daneArray = dane
@@ -94,6 +130,22 @@ fetchJSON();
 // } // tworzenie wierszy i kolumn tabeli i przypisanie danych z api
 
 // getJson()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

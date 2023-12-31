@@ -303,7 +303,51 @@ table td
     background-color: #041929;
     color: white;
 }
+.kolka {
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+    width: 80%;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
 
+.strefa {
+    width: 10%;
+    background-color: rgb(68, 45, 16);
+    height: 90%;
+    padding: 5%;
+    margin: 2% 2% 2% 2%;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.article {
+    display: none;
+    flex-wrap: wrap;
+    transition: 0.3s;
+}
+
+.strefa:first-child {
+    width: 55%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 .grid-container 
 {
     display: grid;
@@ -318,7 +362,7 @@ table td
     padding: 148px;
     font-size: 30px;
     text-align: center;
-}
+} */
 
 /* .row
 {

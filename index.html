@@ -97,14 +97,22 @@
         <div class="container">
             <h1 class="section-title">About - Piotrek</h1>
             <h2 class="subtitle">Grid z 4 prostokątami z opisem nas</h2>
-
-            <div class="grid-container">
-                <div class="grid-item">Piotr Henzolt</div>
-                <div class="grid-item">Kacper Knapczyk</div>
-                <div class="grid-item">Piotr Szarek</div>  
-                <div class="grid-item">Szymon Cebula</div>
+        </div>
+        <div class="kolka">
+            <div class="strefa opened">
+                <p class="article">sdadsaadsdasdas</p>
+            </div>
+            <div class="strefa">
+                <p class="article">dasdassdaasdsda</p>
+            </div>
+            <div class="strefa">
+                <p class="article">asddsasad</p>
+            </div>
+            <div class="strefa">
+                <p class="article">dassdaads</p>
             </div>
         </div>
+        
     </div>
 
     <!-- -------------footer------------- -->
@@ -116,7 +124,7 @@
                     <h2>Navigation</h2>
                         <ul>
                             <li><a href="#home">Home</a></li>
-                            <li><a href="#data">Ranking</a></li>
+                            <li><a href="#ranking">Ranking</a></li>
                             <li><a href="#charts">Charts</a></li>
                             <li><a href="#about">About</a></li>
                         </ul>
@@ -154,51 +162,8 @@
     <script src="https://kit.fontawesome.com/2d8fe6a7d0.js" crossorigin="anonymous"></script>
     <!-- -----------------charts----------------- -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    const chart1 = document.getElementById('myChart1');
-  
-    new Chart(chart1, {
-      type: 'bar',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 2
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  </script>
- <!-- -----------------chart2----------------- -->    
- <script>
-  const chart2 = document.getElementById('myChart2');
-
-  new Chart(chart2, {
-    type: 'doughnut',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 2
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script>
+    <script src="wykres.js"></script>
+    
 </body>
 
 </html>
