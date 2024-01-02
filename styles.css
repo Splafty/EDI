@@ -303,7 +303,7 @@ table td
     background-color: #041929;
     color: white;
 }
-.kolka {
+.about_inside {
     margin-left: auto;
     margin-right: auto;
     height: 80%;
@@ -318,6 +318,7 @@ table td
 .strefa {
     width: 23%;
     background-color: rgb(68, 45, 16);
+    background-image: url(images/background5.png); /* do zmiany */
     height: 90%;
     padding: 5%;
     margin: 2% 2% 2% 2%;
@@ -325,7 +326,10 @@ table td
     transition: 0.3s;
 }
 
-.article {
+.opis {
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
     display: none;
     flex-wrap: wrap;
     transition: 0.3s;

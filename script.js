@@ -12,11 +12,14 @@ sr.reveal(".navigation-menu", {delay: 300, duration: 3000, reset: false, origin:
 
 // Function to fetch JSON data
 function fetchJSON() {
-    fetch("https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0") // Fetch JSON data from the API
+    fetch("https://api.npoint.io/cb7ff4e4cb1e3bdeb7ea") // Fetch JSON data from the API !!! LINK DO ZMIANY
         .then(response => response.json()) // Convert the response into JSON format
         .then(data => {
             const items = data.slice(0, 10); // Take only the first 10 items for demonstration
             // Sort items by most 5_star_reviews
+
+            loadCharts(items) // dane do wykresow
+
             items.sort((a, b) => b["num_5_star_reviews"] - a["num_5_star_reviews"]);
 
             // Get the table body element by ID
@@ -50,34 +53,88 @@ function fetchJSON() {
         .catch(error => console.error("Error fetching JSON data:", error)); // Log an error if fetching fails
 }
 
-//fetchJSON()
+fetchJSON()
 
+// wykresy
+
+function loadCharts(loadedData){
+    let labelWebsites = []
+    let createdWebsites = []
+    let votedWebistes = []
+    console.log(loadedData)
+
+    for(k in loadedData){
+        labelWebsites.push(loadedData[k].first_name+' '+loadedData[k].last_name)
+        createdWebsites.push(loadedData[k]['total_websites_created ']) // do poprawy bo jest spacja !!!
+        votedWebistes.push(loadedData[k].num_5_star_reviews)
+    }
+
+    const chart1 = document.getElementById('myChart1');
+
+    new Chart(chart1, {
+    type: 'bar',
+    data: {
+        labels: labelWebsites,
+        datasets: [{
+        label: '# of Votes',
+        data: votedWebistes,
+        borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
+    }
+    });
+
+    const chart2 = document.getElementById('myChart2');
+    console.log(labelWebsites)
+    new Chart(chart2, {
+        type: 'doughnut',
+        data: {
+        labels: labelWebsites,
+        datasets: [{
+            label: '# created websites',
+            data: createdWebsites,
+            borderWidth: 2
+        }]
+        },
+    });
+
+
+}
 
 
 
 
 // sekcja about
 
-const osoby = document.querySelectorAll('.strefa')
-osoby.forEach(element => {
-    element.addEventListener('click', function(e) {
+const osoby = document.querySelectorAll('.strefa') // elementy o klasie stefa
+
+osoby.forEach(element => {      // dla kazdego elementu wykonuje
+    element.addEventListener('click', function(e) {    // po kliknieciu na dany element wykonuje sie funkcja
+
+        let isAlreadyOpened = e.target.classList.contains('opened')
         let allOsoby = document.querySelectorAll('.strefa')
+
         Array.prototype.forEach.call(allOsoby, function(container) {
-            container.style.width = '10%'
-            var opis = container.querySelector(".article")
-            if(container.classList.contains('opened')){ 
-                opis.style.display = "block"
-            }
-            opis.style.display ="none"
+            container.style.width = '23%'
+            var opis = container.querySelector(".opis")
+            opis.style.display = "none"
             container.classList.remove('opened')
-        })
-        e.target.style.width = '55%'
-        e.target.classList.add('opened')
-        var clickedOpis = e.target.querySelector(".article")
-        clickedOpis.style.display = "block"
-        
-        })
-    });
+        }) // jesli ma klase opened to resetuje do podstawowego ustawienia
+
+        if (!isAlreadyOpened) {
+            e.target.style.width = '300%'
+            e.target.classList.add('opened')
+            var clickedOpis = e.target.querySelector(".opis")
+            clickedOpis.style.display = "block"
+        } // jeśli nie ma klasy opened to rozszerza
+    })
+})
 
 
 
