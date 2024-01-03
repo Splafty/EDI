@@ -53,7 +53,7 @@ function fetchJSON() {
         .catch(error => console.error("Error fetching JSON data:", error)); // Log an error if fetching fails
 }
 
-fetchJSON()
+//fetchJSON() !!!
 
 // wykresy
 
@@ -61,15 +61,15 @@ function loadCharts(loadedData){
     let labelWebsites = []
     let createdWebsites = []
     let votedWebistes = []
-    console.log(loadedData)
+    console.log(loadedData) // puste array do danych importowanych ze strony
 
     for(k in loadedData){
         labelWebsites.push(loadedData[k].first_name+' '+loadedData[k].last_name)
         createdWebsites.push(loadedData[k]['total_websites_created ']) // do poprawy bo jest spacja !!!
         votedWebistes.push(loadedData[k].num_5_star_reviews)
-    }
+    } // do kazdego array dodawane sa dane z poszegolnych "nagłowkow"
 
-    const chart1 = document.getElementById('myChart1');
+    const chart1 = document.getElementById('myChart1'); // wyszukiwanie wykresu w html
 
     new Chart(chart1, {
     type: 'bar',
@@ -90,7 +90,8 @@ function loadCharts(loadedData){
     }
     });
 
-    const chart2 = document.getElementById('myChart2');
+    const chart2 = document.getElementById('myChart2'); // wyszukiwanie wykresu w html
+
     console.log(labelWebsites)
     new Chart(chart2, {
         type: 'doughnut',
@@ -117,25 +118,39 @@ const osoby = document.querySelectorAll('.strefa') // elementy o klasie stefa
 osoby.forEach(element => {      // dla kazdego elementu wykonuje
     element.addEventListener('click', function(e) {    // po kliknieciu na dany element wykonuje sie funkcja
 
-        let isAlreadyOpened = e.target.classList.contains('opened')
+
         let allOsoby = document.querySelectorAll('.strefa')
+        let isAlreadyOpened = e.target.classList.contains('opened')
+
 
         Array.prototype.forEach.call(allOsoby, function(container) {
+            // strefa
             container.style.width = '23%'
-            var opis = container.querySelector(".opis")
-            opis.style.display = "none"
             container.classList.remove('opened')
-        }) // jesli ma klase opened to resetuje do podstawowego ustawienia
+            // opis header
+            var opis_header = container.querySelector(".opis_header")
+            opis_header.classList.remove('otwarty')
+            // opis
+            var opis = container.querySelector(".opis")
+            opis.classList.remove('otwarty')
+        }) 
+        // jesli ma klase opened to resetuje do podstawowego ustawienia
+
 
         if (!isAlreadyOpened) {
+            // strefa
             e.target.style.width = '300%'
             e.target.classList.add('opened')
+            // opis header
+            var clickedOpis_header = e.target.querySelector(".opis_header")
+            clickedOpis_header.classList.add('otwarty')
+            // opis
             var clickedOpis = e.target.querySelector(".opis")
-            clickedOpis.style.display = "block"
-        } // jeśli nie ma klasy opened to rozszerza
+            clickedOpis.classList.add('otwarty')
+        }       
+        // jeśli nie ma klasy opened to rozszerza
     })
 })
-
 
 
 

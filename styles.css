@@ -317,34 +317,62 @@ table td
 
 .strefa {
     width: 23%;
-    background-color: rgb(68, 45, 16);
-    background-image: url(images/background5.png); /* do zmiany */
     height: 90%;
-    padding: 5%;
     margin: 2% 2% 2% 2%;
     border-radius: 4px;
-    transition: 0.3s;
+    transition: 1s;
+}
+.strefa_inside{
+    padding: 3%;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 30%;
+    pointer-events: none;
 }
 
-.opis {
+.s1{
+    background-image: url(images/background5.png);
+}
+
+.s2{
+    background-image: url(images/background5.png);
+}
+.s3{
+    background-image: url(images/background5.png);
+}
+
+.s4{
+    background-image: url(images/background5.png);
+}
+.opis_header{
     font-size: 50px;
     font-weight: bold;
-    color: black;
-    display: none;
-    flex-wrap: wrap;
-    transition: 0.3s;
+    color: white;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/*
-
-
-.strefa:first-child {
-    width: 55%;
+.opis_header.otwarty{
+    opacity: 1;
+    transform: scaleY(1);
 }
 
 
-*/
-
+.opis {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+}
+.opis.otwarty{
+    opacity: 1;
+    transform: scaleY(1);
+}
 
 
 
