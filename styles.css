@@ -148,7 +148,7 @@ header ul li a:hover::after
     margin-bottom: 50px;
 }
 
-.home-text a
+.home-text a, #showButton
 {
     text-decoration: none;
     font-weight: bold;
@@ -162,7 +162,7 @@ header ul li a:hover::after
     transition: 0.5s;
 }
 
-.home-text a:hover
+.home-text a:hover,#showButton:hover
 {
     color: rgb(43, 139, 230);
     background-color: white;
@@ -304,9 +304,8 @@ table td
 #showButton 
 {
     padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
+    font-size: large;
+    margin-top: 2%;
 }
 
 
