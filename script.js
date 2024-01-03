@@ -12,15 +12,41 @@ sr.reveal(".navigation-menu", {delay: 300, duration: 3000, reset: false, origin:
 
 // Function to fetch JSON data
 function fetchJSON() {
-    fetch("https://api.npoint.io/cb7ff4e4cb1e3bdeb7ea") // Fetch JSON data from the API !!! LINK DO ZMIANY
+    fetch("https://api.npoint.io/3cdd557c2d567bf9ee65") // Fetch JSON data from the API !!! LINK DO ZMIANY na (https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0)
         .then(response => response.json()) // Convert the response into JSON format
         .then(data => {
             const items = data.slice(0, 10); // Take only the first 10 items for demonstration
+            
             // Sort items by most 5_star_reviews
-
-            loadCharts(items) // dane do wykresow
-
             items.sort((a, b) => b["num_5_star_reviews"] - a["num_5_star_reviews"]);
+            
+            loadCharts(items) // Making Charts
+
+            // Iterate over items
+            items.forEach((item, i) => {
+
+                var name_element = document.getElementsByClassName("dev-name")[i]
+                var fullName = item.first_name + ' ' + item.last_name
+                name_element.textContent = fullName
+
+                var protfolio_element = document.getElementsByClassName("dev-portfolio")[i]
+                protfolio_element.textContent = item.portfolio_link
+
+                var reviews_element = document.getElementsByClassName("dev-reviews")[i]
+                reviews_element.textContent += item.num_5_star_reviews
+
+                var websites_created_element = document.getElementsByClassName("dev-websites-created")[i]
+                websites_created_element.textContent += item.total_websites_created
+
+                var experience_element = document.getElementsByClassName("dev-years-of-experience")[i]
+                experience_element.textContent += item.years_of_experience
+
+                var country_element = document.getElementsByClassName("dev-country")[i]
+                country_element.textContent += item.country
+
+                var rating_element = document.getElementsByClassName("dev-rating")[i]
+                rating_element.textContent += item.rating
+            });
 
             // Get the table body element by ID
             const tableBody = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
@@ -53,63 +79,118 @@ function fetchJSON() {
         .catch(error => console.error("Error fetching JSON data:", error)); // Log an error if fetching fails
 }
 
-//fetchJSON() !!!
+fetchJSON()
 
-// wykresy
 
-function loadCharts(loadedData){
-    let labelWebsites = []
-    let createdWebsites = []
-    let votedWebistes = []
-    console.log(loadedData) // puste array do danych importowanych ze strony
-
-    for(k in loadedData){
-        labelWebsites.push(loadedData[k].first_name+' '+loadedData[k].last_name)
-        createdWebsites.push(loadedData[k]['total_websites_created ']) // do poprawy bo jest spacja !!!
-        votedWebistes.push(loadedData[k].num_5_star_reviews)
-    } // do kazdego array dodawane sa dane z poszegolnych "nagłowkow"
-
-    const chart1 = document.getElementById('myChart1'); // wyszukiwanie wykresu w html
-
-    new Chart(chart1, {
-    type: 'bar',
-    data: {
-        labels: labelWebsites,
-        datasets: [{
-        label: '# of Votes',
-        data: votedWebistes,
-        borderWidth: 2
-        }]
-    },
-    options: {
-        scales: {
-        y: {
-            beginAtZero: true
-        }
-        }
+// Function to show table
+function showTable() 
+{
+    var table = document.getElementById("dataTable");
+    if (table.style.display === "none") 
+    {
+    table.style.display = "table";
+    } 
+    else 
+    {
+    table.style.display = "none";
     }
-    });
-
-    const chart2 = document.getElementById('myChart2'); // wyszukiwanie wykresu w html
-
-    console.log(labelWebsites)
-    new Chart(chart2, {
-        type: 'doughnut',
-        data: {
-        labels: labelWebsites,
-        datasets: [{
-            label: '# created websites',
-            data: createdWebsites,
-            borderWidth: 2
-        }]
-        },
-    });
-
-
 }
 
 
+// Charts
+function loadCharts(loadedData)
+{
+    let labelWebsites = []
+    let createdWebsites = []
+    let votedWebistes = []
 
+    for(k in loadedData)
+    {
+        labelWebsites.push(loadedData[k].first_name+' '+loadedData[k].last_name)
+        createdWebsites.push(loadedData[k]['num_5_star_reviews'])
+        votedWebistes.push(loadedData[k].num_5_star_reviews)
+    }
+
+    
+    //Bar Chart
+    const chart1 = document.getElementById('myChart1');
+    new Chart(chart1, {
+    type: 'bar',
+        data: {
+            labels: labelWebsites,
+            datasets: [{
+                label: 'Number of 5-star reviews',
+                data: votedWebistes,
+                backgroundColor: ['rgba(255, 99, 132, 0.3)', 'rgba(54, 162, 235, 0.3)', 'rgba(255, 206, 86, 0.3)'],
+                borderColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    ticks: {
+                        color: 'gray'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: 'gray',
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'API based bar chart',
+                    font: {
+                        size: 18
+                    },
+                    color: 'lightgray'
+                },
+                legend: {
+                    labels: {
+                        color: 'gray'
+                    }
+                },
+            },
+        }
+    });
+
+
+    //Doughnut Chart
+    const chart2 = document.getElementById('myChart2');
+    new Chart(chart2, {
+        type: 'doughnut',
+        data: {
+            labels: labelWebsites,
+            datasets: [{
+                label: 'Number of 5-star reviews',
+                data: votedWebistes,
+                backgroundColor: ['rgba(255, 99, 132, 0.3)', 'rgba(54, 162, 235, 0.3)', 'rgba(255, 206, 86, 0.3)'],
+                borderColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'API based doughnut chart',
+                    font: {
+                        size: 18
+                    },
+                    color: 'lightgray'
+                },
+                legend: {
+                    labels: {
+                        color: 'gray'
+                    }
+                },
+            },
+        }
+    });
+}
 
 // sekcja about
 
@@ -157,75 +238,7 @@ osoby.forEach(element => {      // dla kazdego elementu wykonuje
 
 
 
-
-
-
-
-
-
-
-
-
-
-// // tworzenie tabeli
-// async function getJson() {
-//     const response = await fetch("https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0");
-//     const data = await response.json();
-//     createTables(data)
-// }
-
-// let tables = ['first_name', 'last_name', 'num_5_star_reviews', 'total_websites_created', 'portfolio_link']
-// 
-
-// function createTables(dane){
-//     var daneArray = dane
-//     const table = document.querySelector('#table') // szukanie tabelki w html
-    
-//     let newTr = document.createElement('tr') 
-//     table.append(newTr)
-//     for(q in tables){
-//         let newTh = document.createElement('th')
-//         newTh.innerHTML = tables[q]
-//         newTr.append(newTh)
-//     } // tworzenie nagłówków tabeli i przypisanie danych z api
-
-//     for(k in daneArray){
-//         let newTd = document.createElement('tr')
-//         table.append(newTd)
-//         for(v in tables){
-//             let wiersz = k
-//             let td = document.createElement('td')
-//             td.innerHTML = daneArray[wiersz][tables[v]]
-//             newTd.append(td)
-//         }
-//     }
-// } // tworzenie wierszy i kolumn tabeli i przypisanie danych z api
-
-// getJson()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // // Recycle??
-
 // var tablinks = document.getElementsByClassName("tab-links");
 // var tabcontents = document.getElementsByClassName("tab-contents");
 
