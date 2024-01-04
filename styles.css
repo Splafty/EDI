@@ -131,6 +131,7 @@ header ul li a:hover::after
 
 .home-text 
 {
+    user-select: none;
     width: 100%;
     height: 60vw;
     margin-top: 220px;
@@ -400,7 +401,7 @@ table td
     padding: 3%;
     background-color: rgba(0,0,0,0.5);
     width: 100%;
-    height: 30%;
+    height: 20%;
     pointer-events: none;
 }
 
@@ -419,7 +420,7 @@ table td
     background-image: url(images/background5.png);
 }
 .opis_header{
-    font-size: 50px;
+    font-size: 5vh; /*ewentualnie do zmiany font size */
     font-weight: bold;
     color: white;
     opacity: 0;
@@ -435,7 +436,7 @@ table td
 
 
 .opis {
-    font-size: 30px;
+    font-size: 1.5vh; /*ewentualnie do zmiany font size */
     font-weight: bold;
     color: white;
     opacity: 0;
@@ -648,4 +649,27 @@ table td
 .footer-col-3 .social-media i:hover
 {
     color: rgb(43, 139, 230);
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #2392fb #000000;
+}
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 13px;
+}
+
+  *::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #2392fb;
+    border-radius: 5px;
+    border: 0px none #ffffff;
 }

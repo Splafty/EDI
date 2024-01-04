@@ -90,11 +90,12 @@ function showTable()
     {
     table.style.display = "table";
     } 
-    else 
+    else
     {
     table.style.display = "none";
     }
 }
+
 
 
 // Charts
