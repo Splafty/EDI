@@ -10,6 +10,26 @@ sr.reveal(".home-text", {delay: 100, reset: false, origin: "top"});
 sr.reveal(".navigation-menu", {delay: 300, duration: 3000, reset: false, origin: "right"});
 
 
+// Function to calculate the numbers of developers from each country
+function calculateDevelopersByCountry(data)
+{
+    const developersByCountry = {};
+
+    data.forEach((developer) => {
+        const country = developer.country;
+        developersByCountry[country] = (developersByCountry[country] || 0) + 1;
+    });
+
+    const sortedDevelopersByCountry = Object.entries(developersByCountry)
+    .sort((a, b) => b[1] - a[1])
+    .reduce((acc, [country, count]) => {
+        acc[country] = count;
+        return acc;
+    }, {});
+
+    return sortedDevelopersByCountry;
+}
+
 // Function to fetch JSON data
 function fetchJSON() {
     fetch("https://api.npoint.io/3cdd557c2d567bf9ee65") // Fetch JSON data from the API !!! LINK DO ZMIANY na (https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0)
@@ -20,7 +40,10 @@ function fetchJSON() {
             // Sort items by most 5_star_reviews
             items.sort((a, b) => b["num_5_star_reviews"] - a["num_5_star_reviews"]);
             
-            loadCharts(items) // Making Charts
+            // Function to calculate the numbers of developers from each country
+            var developer_countries = calculateDevelopersByCountry(data)
+            
+            loadCharts(items, developer_countries) // Making Charts
 
             // Iterate over items
             items.forEach((item, i) => {
@@ -81,7 +104,6 @@ function fetchJSON() {
 
 fetchJSON()
 
-
 // Function to show table
 function showTable() 
 {
@@ -99,17 +121,15 @@ function showTable()
 
 
 // Charts
-function loadCharts(loadedData)
+function loadCharts(loadedData, developer_countries)
 {
-    let labelWebsites = []
-    let createdWebsites = []
-    let votedWebistes = []
+    let creators = []
+    let values = []
 
     for(k in loadedData)
     {
-        labelWebsites.push(loadedData[k].first_name+' '+loadedData[k].last_name)
-        createdWebsites.push(loadedData[k]['num_5_star_reviews'])
-        votedWebistes.push(loadedData[k].num_5_star_reviews)
+        creators.push(loadedData[k].first_name+' '+loadedData[k].last_name)
+        values.push(loadedData[k].num_5_star_reviews)
     }
 
     
@@ -118,10 +138,10 @@ function loadCharts(loadedData)
     new Chart(chart1, {
     type: 'bar',
         data: {
-            labels: labelWebsites,
+            labels: creators,
             datasets: [{
                 label: 'Number of 5-star reviews',
-                data: votedWebistes,
+                data: values,
                 backgroundColor: ['rgba(171, 31, 28, 0.3)', 'rgba(42, 189, 221, 0.3)', 'rgba(255, 123, 98, 0.3)', 'rgba(180, 55, 210, 0.3)', 'rgba(89, 176, 167, 0.3)', 'rgba(201, 34, 145, 0.3)', 'rgba(112, 223, 76, 0.3)', 'rgba(15, 92, 188, 0.3)', 'rgba(255, 186, 52, 0.3)', 'rgba(110, 64, 48, 0.3)'],
                 borderColor: ["rgb(171, 31, 28)", "rgb(42, 189, 221)", "rgb(255, 123, 98)", "rgb(180, 55, 210)", "rgb(89, 176, 167)", "rgb(201, 34, 145)", "rgb(112, 223, 76)", "rgb(15, 92, 188)", "rgb(255, 186, 52)", "rgb(110, 64, 48)"],
                 borderWidth: 1,
@@ -159,15 +179,15 @@ function loadCharts(loadedData)
     });
 
 
-    //Doughnut Chart
+    // Doughnut Chart
     const chart2 = document.getElementById('myChart2');
     new Chart(chart2, {
         type: 'doughnut',
         data: {
-            labels: labelWebsites,
+            labels: Object.keys(developer_countries),
             datasets: [{
-                label: 'Number of 5-star reviews',
-                data: votedWebistes,
+                label: 'Number of Developers',
+                data: Object.values(developer_countries),
                 backgroundColor: ['rgba(171, 31, 28, 0.3)', 'rgba(42, 189, 221, 0.3)', 'rgba(255, 123, 98, 0.3)', 'rgba(180, 55, 210, 0.3)', 'rgba(89, 176, 167, 0.3)', 'rgba(201, 34, 145, 0.3)', 'rgba(112, 223, 76, 0.3)', 'rgba(15, 92, 188, 0.3)', 'rgba(255, 186, 52, 0.3)', 'rgba(110, 64, 48, 0.3)'],
                 borderColor: ["rgb(171, 31, 28)", "rgb(42, 189, 221)", "rgb(255, 123, 98)", "rgb(180, 55, 210)", "rgb(89, 176, 167)", "rgb(201, 34, 145)", "rgb(112, 223, 76)", "rgb(15, 92, 188)", "rgb(255, 186, 52)", "rgb(110, 64, 48)"],
                 borderWidth: 1,
