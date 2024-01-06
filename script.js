@@ -1,4 +1,4 @@
-// ScrollReveal - cool text reveal on entering the website
+// ScrollReveal - cool reveal
 const sr = ScrollReveal ({
     distance: "60px",
     duration: 3000,
@@ -6,8 +6,14 @@ const sr = ScrollReveal ({
     reset: true
 })
 
-sr.reveal(".home-text", {delay: 100, reset: false, origin: "top"});
-sr.reveal(".navigation-menu", {delay: 300, duration: 3000, reset: false, origin: "right"});
+sr.reveal(".home-text", {delay: 100, duration: 2500, reset: false, origin: "top"});
+sr.reveal("#ranking-grid-row-1", {delay: 0, duration: 2500, origin: "bottom"});
+sr.reveal("#ranking-grid-row-2", {delay: 0, duration: 2500, origin: "bottom"});
+sr.reveal("#dataTableDiv", {delay: 0, duration: 2000, origin: "bottom"});
+sr.reveal("#buttonSection", {delay: 0, duration: 2000, origin: "bottom"});
+sr.reveal("#chart1", {delay: 0, duration: 2000, origin: "left"});
+sr.reveal("#chart2", {delay: 0, duration: 2000, origin: "right"});
+sr.reveal("#about", {delay: 0, duration: 2000, origin: "bottom"});
 
 
 // Function to calculate the numbers of developers from each country
@@ -31,14 +37,15 @@ function calculateDevelopersByCountry(data)
 }
 
 // Function to fetch JSON data
-function fetchJSON() {
-    fetch("https://api.npoint.io/3cdd557c2d567bf9ee65") // Fetch JSON data from the API !!! LINK DO ZMIANY na (https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0)
+function fetchJSON()
+{
+    fetch("https://api.npoint.io/09200a2ccc1c2c79fa16") // Fetch JSON data from the API !!! LINK DO ZMIANY na (https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0)
         .then(response => response.json()) // Convert the response into JSON format
         .then(data => {
-            const items = data.slice(0, 10); // Take only the first 10 items for demonstration
-            
             // Sort items by most 5_star_reviews
-            items.sort((a, b) => b["num_5_star_reviews"] - a["num_5_star_reviews"]);
+            data.sort((a, b) => b["num_5_star_reviews"] - a["num_5_star_reviews"]);
+
+            const items = data.slice(0, 10); // Take only the first 10 items for demonstration
             
             // Function to calculate the numbers of developers from each country
             var developer_countries = calculateDevelopersByCountry(data)
@@ -95,7 +102,7 @@ function fetchJSON() {
                         tr.appendChild(td);                         // Add the created cell to the current row
                     }
                 }
-                position++; // 
+                position++; // Position variable increment
                 tableBody.appendChild(tr); // Add the created row to the table body
             });
         })
@@ -104,19 +111,75 @@ function fetchJSON() {
 
 fetchJSON()
 
-// Function to show table
-function showTable() 
+function removeRows()
 {
-    var table = document.getElementById("dataTable");
-    if (table.style.display === "none") 
+    const tableBody = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+
+    // Keep the first 10 rows and remove any additional rows
+    for (let i = 99; i >= 10; i--)
     {
-    table.style.display = "table";
-    } 
-    else
-    {
-    table.style.display = "none";
+        tableBody.rows[i].remove();
     }
 }
+
+// Function to show table
+function expandAndContract() 
+{
+    var button = document.getElementById("showRanking");
+
+      if (button.innerHTML === "Show Ranking")
+      {
+        button.innerHTML = "Hide Ranking";
+        expandRows()
+      } 
+      else 
+      {
+        button.innerHTML = "Show Ranking";
+        removeRows();
+      }
+}
+
+// Function to show 100 rows of data
+function expandRows()
+{
+    fetch("https://api.npoint.io/09200a2ccc1c2c79fa16") // Fetch JSON data from the API !!! LINK DO ZMIANY na (https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0)
+        .then(response => response.json()) // Convert the response into JSON format
+        .then(data => {
+            data.sort((a, b) => b["num_5_star_reviews"] - a["num_5_star_reviews"]);
+            const items = data.slice(10, 100); // Take only the last 90 items
+            // Sort items by most 5_star_reviews
+            
+            // Get the table body element by ID
+            const tableBody = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+
+            // Position variable
+            var position = 11
+            // Iterate over items
+            items.forEach(item => {
+                
+                const tr = document.createElement("tr"); // Create a table row element for each item in the JSON
+
+                const rank = document.createElement("td");    // Create a table cell for position variable
+                rank.textContent = position;                  // Add position variable as content
+                tr.appendChild(rank);                         // Add the created cell to the current row
+
+                // Iterate over properties in the current item
+                for (const key in item) 
+                {
+                    if (item.hasOwnProperty(key)) 
+                    {   
+                        const td = document.createElement("td");    // Create a table cell for each property and import the data
+                        td.textContent = item[key];                 // Add content
+                        tr.appendChild(td);                         // Add the created cell to the current row
+                    }
+                }
+                position++; // Position variable increment
+                tableBody.appendChild(tr); // Add the created row to the table body
+            });
+        })
+        .catch(error => console.error("Error fetching JSON data:", error)); // Log an error if fetching fails
+}
+
 
 
 

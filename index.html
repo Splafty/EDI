@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <!-- -------------home------------- -->
+    <!-- --------------------------home-------------------------- -->
     <div id="home">
         <div class="container">
             <header>
                     <a href="#home" id="logo">TopDevs</a>
-                    <ul>
+                    <ul id="navigation-menu">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#ranking">Ranking</a></li>
                         <li><a href="#charts">Charts</a></li>
@@ -30,14 +30,13 @@
         </div>
     </div>
 
-    <!-- -------------data------------- -->
-    
+    <!-- --------------------------ranking-------------------------- -->
     <div id="ranking">
         <div class="container">
             <h1 class="section-title">Ranking</h1>
             <h2 class="subtitle">Best developers</h2>
 
-            <div id="ranking-grid">
+            <div class="ranking-grid" id="ranking-grid-row-1">
                 <div class="podium">
                     <h3 class="rank-number">🥇 Rank: 1</h3>
                     <div class="portrait" id="portrait-1"></div>
@@ -97,7 +96,10 @@
                     <p class="dev-country">★ Country: </p>
                     <p class="dev-rating">★ Rating: </p>
                 </div>
+            </div>
 
+            <!-- Second row -->
+            <div class="ranking-grid" id="ranking-grid-row-2">
                 <div class="podium">
                     <h3 class="rank-number">Rank: 6</h3>
                     <div class="portrait" id="portrait-6"></div>
@@ -158,31 +160,40 @@
                     <p class="dev-rating">★ Rating: </p>
                 </div>
             </div>
+        </div>
+    </div>
+        
+    <!-- -------------------------table-------------------------- -->
+    <div id="rankingTable">
+        <div class="container">
+            <div id="dataTableDiv">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Rating</th>
+                            <th>Country</th>
+                            <th>Last name</th>
+                            <th>Name</th>
+                            <th>Portfolio</th>
+                            <th>5 star reviews</th>
+                            <th>Years of experience</th>
+                            <th>Total websites created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- data will be imported here -->
+                    </tbody>
+                </table>
+            </div>
             
-            <table id="dataTable">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Rating</th>
-                        <th>Country</th>
-                        <th>Last name</th>
-                        <th>Name</th>
-                        <th>Portfolio</th>
-                        <th>5 star reviews</th>
-                        <th>Years of experience</th>
-                        <th>Total websites created</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- data will be imported here -->
-                </tbody>
-            </table>
-
-            <button id="showButton" onclick="showTable()">Show Table</button>
+            <div id="buttonSection">
+                <a href="#rankingTable" id="showRanking" onclick="expandAndContract() ">Show Ranking</a>
+            </div>
         </div>
     </div>
 
-    <!-- -------------charts------------- -->
+    <!-- -------------------------charts------------------------- -->
     <div id="charts">
         <div class="container">
             <h1 class="section-title">Charts</h1>
@@ -198,7 +209,7 @@
         </div>
     </div>
 
-    <!-- -------------about------------- -->
+    <!-- -------------------------about-------------------------- -->
     <div id="about">
         <div class="container">
             <h1 class="section-title">About</h1>
@@ -238,7 +249,7 @@
         
     </div>
 
-    <!-- -------------footer------------- -->
+    <!-- -------------------------footer------------------------- -->
         <div id="footer">
             <div class="container">
                 <div class="row">

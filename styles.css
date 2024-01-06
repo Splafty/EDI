@@ -154,7 +154,7 @@ header ul li a:hover::after
 {
     width: 100%;
     height: 100vh;
-    background-image: url(images/background10.png);
+    background-image: url(images/background.png);
     background-size: cover;
     background-position: center;
 }
@@ -162,6 +162,7 @@ header ul li a:hover::after
 .home-text 
 {
     user-select: none;
+    margin-top: 220px;
     width: 100%;
     height: 60vw;
     text-align: center;
@@ -178,7 +179,7 @@ header ul li a:hover::after
     margin-bottom: 50px;
 }
 
-.home-text a, #showButton
+.home-text a
 {
     text-decoration: none;
     font-weight: bold;
@@ -188,11 +189,11 @@ header ul li a:hover::after
     background-color: #2b8be6;
     color: #ffffff;
     border-radius: 100px;
-    border-color: #ffffff;
+    border: 0;
     transition: 0.5s;
 }
 
-.home-text a:hover,#showButton:hover
+.home-text a:hover
 {
     color: rgb(43, 139, 230);
     background-color: #ffffff;
@@ -201,19 +202,23 @@ header ul li a:hover::after
 /* <!-- -------------ranking------------- --> */
 #ranking 
 {
-    /* height: 100vh; */
     background-color: black;
     color: #ffffff;
 }
 
-#ranking-grid
+.ranking-grid
 {
     width: 80vw;
-    margin-top: 75px;
+    margin-top: 30px;
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto;
     grid-template-columns: auto auto auto auto auto;
     row-gap: 20px;
+}
+
+#ranking-grid-row-2
+{
+    margin-top: 0px;
 }
 
 .rank-number
@@ -305,6 +310,14 @@ header ul li a:hover::after
     background-image: url(images/zdj10.png);
 }
 
+
+/* <!-- -------------table------------- --> */
+#rankingTable
+{
+    background-color: black;
+    color: #ffffff;
+}
+
 table 
 {
     border-top: 3px solid white;
@@ -331,13 +344,34 @@ table td
 
 }
 
-#showButton 
+#buttonSection
 {
-    padding: 10px;
-    font-size: large;
-    margin-top: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+#showRanking
+{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 20px 140px;
+    background-color: #2b8be6;
+    color: #ffffff;
+    border-radius: 100px;
+    border: 0;
+    transition: 0.5s;
+}
+
+#showRanking:hover
+{
+    color: rgb(43, 139, 230);
+    background-color: #ffffff;
+}
 
 /* <!-- -------------charts------------- --> */
 #charts 
@@ -369,44 +403,15 @@ table td
     padding: 20px;
 }
 
-
-/*.format-information
-{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
-}
-
-.format-information div
-{
-    border-radius: 10px;
-    background: rgb(35, 35, 35);
-    padding: 30px;
-    transition: 0.5s;
-}
-
-.format-information div h2
-{
-    font-size: 33px;
-    font-weight: 550;
-    margin-bottom: 15px;
-}
-
-.format-information div:hover
-{
-    background: rgb(75, 145, 25);
-    transform: translateY(-10px);
-    cursor: pointer;
-} */
-
 /* <!-- -------------about------------- --> */
 #about 
 {
     height: 100vh;
     color: white;
 }
-.about_inside {
+
+.about_inside
+{
     margin-left: auto;
     margin-right: auto;
     height: 80%;
@@ -418,14 +423,16 @@ table td
     justify-content: flex-start;
 }
 
-.strefa {
+.strefa
+{
     width: 23%;
     height: 90%;
     margin: 2% 2% 2% 2%;
     border-radius: 4px;
     transition: 1s;
 }
-.strefa_inside{
+.strefa_inside
+{
     padding: 3%;
     background-color: rgba(0,0,0,0.5);
     width: 100%;
@@ -433,21 +440,28 @@ table td
     pointer-events: none;
 }
 
-.s1{
+.s1
+{
     background-image: url(images/background5.png);
 }
 
-.s2{
-    background-image: url(images/background5.png);
-}
-.s3{
+.s2
+{
     background-image: url(images/background5.png);
 }
 
-.s4{
+.s3
+{
     background-image: url(images/background5.png);
 }
-.opis_header{
+
+.s4
+{
+    background-image: url(images/background5.png);
+}
+
+.opis_header
+{
     font-size: 5vh; /*ewentualnie do zmiany font size */
     font-weight: bold;
     color: white;
@@ -457,13 +471,15 @@ table td
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.opis_header.otwarty{
+.opis_header.otwarty
+{
     opacity: 1;
     transform: scaleY(1);
 }
 
 
-.opis {
+.opis
+{
     font-size: 1.5vh; /*ewentualnie do zmiany font size */
     font-weight: bold;
     color: white;
@@ -472,7 +488,9 @@ table td
     transform-origin: top;
     transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
 }
-.opis.otwarty{
+
+.opis.otwarty
+{
     opacity: 1;
     transform: scaleY(1);
 }
