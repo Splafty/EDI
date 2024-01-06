@@ -27,12 +27,13 @@
                 <!-- <p id="subtitle">Welcome to TopDevs, the definitive platform that shines a spotlight<br>on elite web developers. Here, we curate and showcase the exceptional<br>talents defining the digital landscape. Explore a curated ranking of top-tier<br>developers, where innovation converges with expertise in every line of code.<br>Join us in celebrating the brilliance of web development and discover<br>the architects shaping the future of the online world.</p> -->
                 <a href="#ranking">View Ranking</a>
             </div>
+
         </div>
     </div>
 
     <!-- --------------------------ranking-------------------------- -->
     <div id="ranking">
-        <div class="container">
+        <div id="ranking-container" class="container">
             <h1 class="section-title">Ranking</h1>
             <h2 class="subtitle">Best developers</h2>
 
@@ -160,6 +161,7 @@
                     <p class="dev-rating">★ Rating: </p>
                 </div>
             </div>
+
         </div>
     </div>
         
@@ -167,7 +169,7 @@
     <div id="rankingTable">
         <div class="container">
             <div id="dataTableDiv">
-                <table id="dataTable">
+                <table id="dataTable" class="smallTable">
                     <thead>
                         <tr>
                             <th>Rank</th>
@@ -190,6 +192,7 @@
             <div id="buttonSection">
                 <a href="#rankingTable" id="showRanking" onclick="expandAndContract() ">Show Ranking</a>
             </div>
+
         </div>
     </div>
 
@@ -198,14 +201,17 @@
         <div class="container">
             <h1 class="section-title">Charts</h1>
             <h2 class="subtitle">Two charts based on data from API</h2>
-        </div>
-        <div class="charts-container">
-            <div id="chart1">
-                <canvas id="myChart1"></canvas>
+
+            <div class="charts-container">
+                <div id="chart1">
+                    <canvas id="myChart1"></canvas>
+                </div>
+
+                <div id="chart2">
+                    <canvas id="myChart2"></canvas>
+                </div>
             </div>
-            <div id="chart2">
-                <canvas id="myChart2"></canvas>
-            </div>
+
         </div>
     </div>
 
@@ -214,81 +220,84 @@
         <div class="container">
             <h1 class="section-title">About</h1>
             <h2 class="subtitle"></h2>
-        </div>
-        <div class="about_inside">
-            <div class="strefa s1">
-                <div class="strefa_inside">
-                    <h class="opis_header">Piotrek Henzolt</h>
-                    <p class="opis">Geniusz informatyczny, team leader projektu posiadający wachlarz umiejętności w informatyce. 
-                        Jego pasje to programowanie, sport i gry komputerowe.</p>
+            
+            <div class="about_inside">
+                <div class="strefa s1">
+                    <div class="strefa_inside">
+                        <h class="opis_header">Piotrek Henzolt</h>
+                        <p class="opis">Geniusz informatyczny, team leader projektu posiadający wachlarz umiejętności w informatyce. 
+                            Jego pasje to programowanie, sport i gry komputerowe.</p>
+                    </div>
+                </div>
+                <div class="strefa s2">
+                    <div class="strefa_inside">
+                        <h class="opis_header">Kacper Knapczyk</h>
+                        <p class="opis">Student informatyki z zamiłowaniem do nowoczesnej mody. 
+                            Zajmował się handlem odzieżą streetwerową. Jego pasje to siłownia i sportowe samochody.</p>
+                    </div>
+                </div>
+                <div class="strefa s3">
+                    <div class="strefa_inside">
+                        <h class="opis_header">Piotrek Szarek</h>
+                        <p class="opis">Zaangażowany student informatyki,
+                            specjalizujący się w tworzeniu witryn internetowych. 
+                            Sportowy pasjonat z zamiłowaniem do siłowni i sportów zespołowych.</p>    
+                    </div> 
+                </div>
+                <div class="strefa s4">
+                    <div class="strefa_inside">
+                        <h class="opis_header">Szymon Cebula</h>
+                        <p class="opis">Studiuje informatyke z pasji, specjalizuje się w programowaniu. 
+                            W wolnych chwilach szczypiornista, koneser mody i miłośnik gier komoputerowych</p>                    
+                    </div>
                 </div>
             </div>
-            <div class="strefa s2">
-                <div class="strefa_inside">
-                    <h class="opis_header">Kacper Knapczyk</h>
-                    <p class="opis">Student informatyki z zamiłowaniem do nowoczesnej mody. 
-                        Zajmował się handlem odzieżą streetwerową. Jego pasje to siłownia i sportowe samochody.</p>
-                </div>
-            </div>
-            <div class="strefa s3">
-                <div class="strefa_inside">
-                    <h class="opis_header">Piotrek Szarek</h>
-                    <p class="opis">Zaangażowany student informatyki,
-                        specjalizujący się w tworzeniu witryn internetowych. 
-                        Sportowy pasjonat z zamiłowaniem do siłowni i sportów zespołowych.</p>    
-                </div> 
-            </div>
-            <div class="strefa s4">
-                <div class="strefa_inside">
-                    <h class="opis_header">Szymon Cebula</h>
-                    <p class="opis">Studiuje informatyke z pasji, specjalizuje się w programowaniu. 
-                        W wolnych chwilach szczypiornista, koneser mody i miłośnik gier komoputerowych</p>                    
-                </div>
-            </div>
-        </div>
-        
+
+        </div> 
     </div>
 
     <!-- -------------------------footer------------------------- -->
-        <div id="footer">
-            <div class="container">
-                <div class="row">
-                    <!-- mini navbar -->
-                    <div class="footer-col-1">
-                    <h2>Navigation</h2>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#ranking">Ranking</a></li>
-                            <li><a href="#charts">Charts</a></li>
-                            <li><a href="#about">About</a></li>
-                        </ul>
-                    </div>
-    
-                    <!-- internet -->
-                    <div class="footer-col-2">
-                        <h2>Internet</h2>
-                        <!-- search -->
-                        <form action="http://google.com" target="_blank">
-                            <label for="fname" class="search-text">What are you looking for:</label><br>
-                            <input type="text" id="q" name="q" placeholder="" class="search-block"><br>    
-                            <input type="submit" value="Search" class="search-button">
-                        </form>
-                    </div>
-    
-                    <!-- contact -->
-                    <div class="footer-col-3">
-                        <h2>Contact</h2>
-                        <p>TopDevs<br>TopDevs@gmail.com</p>
-                        <div class="social-media">
-                            <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://www.twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                        </div>
-                    </div>
+    <div id="footer">
+        <div class="container">
+
+            <div class="row">
+                <!-- mini navbar -->
+                <div class="footer-col-1">
+                <h2>Navigation</h2>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#ranking">Ranking</a></li>
+                        <li><a href="#charts">Charts</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
                 </div>
 
+                <!-- internet -->
+                <div class="footer-col-2">
+                    <h2>Internet</h2>
+                    <!-- search -->
+                    <form action="http://google.com" target="_blank">
+                        <label for="fname" class="search-text">What are you looking for:</label><br>
+                        <input type="text" id="q" name="q" placeholder="" class="search-block"><br>    
+                        <input type="submit" value="Search" class="search-button">
+                    </form>
+                </div>
 
+                <!-- contact -->
+                <div class="footer-col-3">
+                    <h2>Contact</h2>
+                    <p>TopDevs<br>TopDevs@gmail.com</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <!-- -------------scrollreveal------------- -->
     <script src="https://unpkg.com/scrollreveal"></script>

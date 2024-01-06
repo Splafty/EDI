@@ -1,3 +1,4 @@
+// <------------------------------------------------ (START) ScrollReveal ------------------------------------------------> //
 // ScrollReveal - cool reveal
 const sr = ScrollReveal ({
     distance: "60px",
@@ -7,46 +8,30 @@ const sr = ScrollReveal ({
 })
 
 sr.reveal(".home-text", {delay: 100, duration: 2500, reset: false, origin: "top"});
-sr.reveal("#ranking-grid-row-1", {delay: 0, duration: 2500, origin: "bottom"});
-sr.reveal("#ranking-grid-row-2", {delay: 0, duration: 2500, origin: "bottom"});
-sr.reveal("#dataTableDiv", {delay: 0, duration: 2000, origin: "bottom"});
+sr.reveal("#ranking-grid-row-1", {delay: 0, duration: 2500, origin: "left"});
+sr.reveal("#ranking-grid-row-2", {delay: 0, duration: 2500, origin: "right"});
+sr.reveal(".smallTable", {delay: 0, duration: 2000, origin: "bottom"});
 sr.reveal("#buttonSection", {delay: 0, duration: 2000, origin: "bottom"});
+sr.reveal("#charts", {delay: 0, duration: 2000, origin: "bottom"});
 sr.reveal("#chart1", {delay: 0, duration: 2000, origin: "left"});
 sr.reveal("#chart2", {delay: 0, duration: 2000, origin: "right"});
 sr.reveal("#about", {delay: 0, duration: 2000, origin: "bottom"});
+// <------------------------------------------------ (FINISH) ScrollReveal ------------------------------------------------> //
 
 
-// Function to calculate the numbers of developers from each country
-function calculateDevelopersByCountry(data)
-{
-    const developersByCountry = {};
-
-    data.forEach((developer) => {
-        const country = developer.country;
-        developersByCountry[country] = (developersByCountry[country] || 0) + 1;
-    });
-
-    const sortedDevelopersByCountry = Object.entries(developersByCountry)
-    .sort((a, b) => b[1] - a[1])
-    .reduce((acc, [country, count]) => {
-        acc[country] = count;
-        return acc;
-    }, {});
-
-    return sortedDevelopersByCountry;
-}
-
+// <------------------------------------------------- (START) FetchJSON --------------------------------------------------> //
 // Function to fetch JSON data
 function fetchJSON()
 {
-    fetch("https://api.npoint.io/09200a2ccc1c2c79fa16") // Fetch JSON data from the API !!! LINK DO ZMIANY na (https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0)
+    //!!! LINK DO ZMIANY
+    fetch("https://api.npoint.io/09200a2ccc1c2c79fa16") // Fetch JSON data from the API 
         .then(response => response.json()) // Convert the response into JSON format
         .then(data => {
             // Sort items by most 5_star_reviews
             data.sort((a, b) => b["num_5_star_reviews"] - a["num_5_star_reviews"]);
 
             const items = data.slice(0, 10); // Take only the first 10 items for demonstration
-            
+
             // Function to calculate the numbers of developers from each country
             var developer_countries = calculateDevelopersByCountry(data)
             
@@ -83,8 +68,11 @@ function fetchJSON()
 
             // Position variable
             var position = 1
+
+            const items2 = data;
+
             // Iterate over items
-            items.forEach(item => {
+            items2.forEach(item => {
                 
                 const tr = document.createElement("tr"); // Create a table row element for each item in the JSON
 
@@ -102,7 +90,15 @@ function fetchJSON()
                         tr.appendChild(td);                         // Add the created cell to the current row
                     }
                 }
+                
+                // Add a class to rows after the first 10 to hide them
+                if (position > 10)
+                {
+                    tr.classList.add("hidden-row");
+                }
+                
                 position++; // Position variable increment
+
                 tableBody.appendChild(tr); // Add the created row to the table body
             });
         })
@@ -110,16 +106,60 @@ function fetchJSON()
 }
 
 fetchJSON()
+// <------------------------------------------------- (FINISH) FetchJSON -------------------------------------------------> //
 
-function removeRows()
+
+// <------------------------------------------------- (START) Functions --------------------------------------------------> //
+// Function to calculate the numbers of developers from each country
+function calculateDevelopersByCountry(data)
 {
-    const tableBody = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+    const developersByCountry = {};
 
-    // Keep the first 10 rows and remove any additional rows
-    for (let i = 99; i >= 10; i--)
-    {
-        tableBody.rows[i].remove();
-    }
+    data.forEach((developer) => {
+        const country = developer.country;
+        developersByCountry[country] = (developersByCountry[country] || 0) + 1;
+    });
+
+    const sortedDevelopersByCountry = Object.entries(developersByCountry)
+    .sort((a, b) => b[1] - a[1])
+    .reduce((acc, [country, count]) => {
+        acc[country] = count;
+        return acc;
+    }, {});
+
+    return sortedDevelopersByCountry;
+}
+
+// Function to show hide displayed rows
+function hideRows()
+{
+    const displayedRows = document.querySelectorAll(".displayed-row");
+    displayedRows.forEach(row => {
+        row.classList.remove("displayed-row");
+        row.classList.add("hidden-row");
+    });
+
+    const table = document.getElementById("dataTable")
+    table.classList.remove("bigTable");
+    table.classList.add("smallTable");
+
+    sr.reveal(".smallTable", {delay: 0, duration: 1000, origin: "bottom"});
+}
+
+// Function to show hidden rows
+function showHiddenRows()
+{
+    const hiddenRows = document.querySelectorAll(".hidden-row");
+    hiddenRows.forEach(row => {
+        row.classList.remove("hidden-row");
+        row.classList.add("displayed-row");
+    });
+
+    const table = document.getElementById("dataTable")
+    table.classList.remove("smallTable");
+    table.classList.add("bigTable");
+
+    sr.reveal(".bigTable", {delay: 0, duration: 1000, origin: "bottom"});
 }
 
 // Function to show table
@@ -130,59 +170,18 @@ function expandAndContract()
       if (button.innerHTML === "Show Ranking")
       {
         button.innerHTML = "Hide Ranking";
-        expandRows()
+        showHiddenRows()
       } 
       else 
       {
         button.innerHTML = "Show Ranking";
-        removeRows();
+        hideRows();
       }
 }
-
-// Function to show 100 rows of data
-function expandRows()
-{
-    fetch("https://api.npoint.io/09200a2ccc1c2c79fa16") // Fetch JSON data from the API !!! LINK DO ZMIANY na (https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0)
-        .then(response => response.json()) // Convert the response into JSON format
-        .then(data => {
-            data.sort((a, b) => b["num_5_star_reviews"] - a["num_5_star_reviews"]);
-            const items = data.slice(10, 100); // Take only the last 90 items
-            // Sort items by most 5_star_reviews
-            
-            // Get the table body element by ID
-            const tableBody = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
-
-            // Position variable
-            var position = 11
-            // Iterate over items
-            items.forEach(item => {
-                
-                const tr = document.createElement("tr"); // Create a table row element for each item in the JSON
-
-                const rank = document.createElement("td");    // Create a table cell for position variable
-                rank.textContent = position;                  // Add position variable as content
-                tr.appendChild(rank);                         // Add the created cell to the current row
-
-                // Iterate over properties in the current item
-                for (const key in item) 
-                {
-                    if (item.hasOwnProperty(key)) 
-                    {   
-                        const td = document.createElement("td");    // Create a table cell for each property and import the data
-                        td.textContent = item[key];                 // Add content
-                        tr.appendChild(td);                         // Add the created cell to the current row
-                    }
-                }
-                position++; // Position variable increment
-                tableBody.appendChild(tr); // Add the created row to the table body
-            });
-        })
-        .catch(error => console.error("Error fetching JSON data:", error)); // Log an error if fetching fails
-}
+// <------------------------------------------------- (FINISH) Functions -------------------------------------------------> //
 
 
-
-
+// <--------------------------------------------------- (START) Charts ---------------------------------------------------> //
 // Charts
 function loadCharts(loadedData, developer_countries)
 {
@@ -275,9 +274,11 @@ function loadCharts(loadedData, developer_countries)
         }
     });
 }
+// <--------------------------------------------------- (FINISH) Charts --------------------------------------------------> //
 
+
+// <--------------------------------------------------- (START) About ----------------------------------------------------> //
 // sekcja about
-
 const osoby = document.querySelectorAll('.strefa') // elementy o klasie stefa
 
 osoby.forEach(element => {      // dla kazdego elementu wykonuje
@@ -304,7 +305,7 @@ osoby.forEach(element => {      // dla kazdego elementu wykonuje
 
         if (!isAlreadyOpened) {
             // strefa
-            e.target.style.width = '300%'
+            e.target.style.width = '60%'
             e.target.classList.add('opened')
             // opis header
             var clickedOpis_header = e.target.querySelector(".opis_header")
@@ -316,6 +317,7 @@ osoby.forEach(element => {      // dla kazdego elementu wykonuje
         // jeśli nie ma klasy opened to rozszerza
     })
 })
+// <--------------------------------------------------- (FINISH) About ---------------------------------------------------> //
 
 
 

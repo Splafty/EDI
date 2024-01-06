@@ -216,9 +216,15 @@ header ul li a:hover::after
     row-gap: 20px;
 }
 
+#ranking-container
+{
+    padding-bottom: 0px;
+}
+
 #ranking-grid-row-2
 {
     margin-top: 0px;
+    padding-bottom: -20px;
 }
 
 .rank-number
@@ -311,9 +317,10 @@ header ul li a:hover::after
 }
 
 
-/* <!-- -------------table------------- --> */
+/* <!-- -------------ranking-table------------- --> */
 #rankingTable
 {
+    padding-top: 42px;
     background-color: black;
     color: #ffffff;
 }
@@ -336,12 +343,16 @@ table th
 
 table td 
 {
-    border-top: 2px solid lightgray;
-    border-bottom: 2px solid lightgray;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
     padding: 11px;
     text-align: center;
     font-size: 16px;
 
+}
+
+.hidden-row {
+    display: none;
 }
 
 #buttonSection
@@ -384,10 +395,7 @@ table td
 .charts-container
 {
     display: flex;
-    width: 80%;
-    height: 70%;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -396,6 +404,7 @@ table td
 {
     background-color: #232323;
     width: 48.5%;
+    height: 640px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -462,7 +471,7 @@ table td
 
 .opis_header
 {
-    font-size: 5vh; /*ewentualnie do zmiany font size */
+    font-size: 20px; /*ewentualnie do zmiany font size */
     font-weight: bold;
     color: white;
     opacity: 0;
@@ -477,10 +486,9 @@ table td
     transform: scaleY(1);
 }
 
-
 .opis
 {
-    font-size: 1.5vh; /*ewentualnie do zmiany font size */
+    font-size: 20px; /*ewentualnie do zmiany font size */
     font-weight: bold;
     color: white;
     opacity: 0;
