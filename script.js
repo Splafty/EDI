@@ -188,14 +188,14 @@ function expandAndContract()
 {
     var button = document.getElementById("showRanking");
 
-    if (button.innerHTML === "Show Ranking")
+    if (button.innerHTML === "Show more")
     {
-        button.innerHTML = "Hide Ranking";
+        button.innerHTML = "Hide";
         showHiddenRows()
     } 
     else 
     {
-        button.innerHTML = "Show Ranking";
+        button.innerHTML = "Show more";
         hideRows();
     }
 }
