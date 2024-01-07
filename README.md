@@ -54,7 +54,7 @@ iii) https://www.freecodecamp.org/news/these-are-the-best-javascript-chartlibrar
 https://<github_account_name>.github.io/EDI  
 https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-githubpages-site  
 
-<br>(❌) 8. Submit the project for assessment:  
+<br>(✔️) 8. Submit the project for assessment:  
 a. On the Moodle platform (Group Project item), paste the link to your project website,
 hosted on the github (each team member do this separately).  
 b. Additionally, paste the link to your project below the project registration post (add a
