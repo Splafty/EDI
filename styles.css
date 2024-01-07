@@ -415,14 +415,14 @@ table td
 /* <!-- -------------about------------- --> */
 #about 
 {
-    height: 100vh;
+    height: 125vh;
     color: white;
 }
 
 .grid-container 
 {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     grid-gap: 40px;
 }
 
@@ -430,7 +430,6 @@ table td
 {
     background-color: #232323;
     border-radius: 20px;
-    padding: 148px;
     font-size: 30px;
     text-align: center;
 }
