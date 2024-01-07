@@ -34,8 +34,9 @@ function fetchJSON()
 
             // Function to calculate the numbers of developers from each country
             var developer_countries = calculateDevelopersByCountry(data)
+            var developer_experience = calculateDevelopersByExperience(data)
             
-            loadCharts(items, developer_countries) // Making Charts
+            loadCharts(items, developer_countries, developer_experience) // Making Charts
 
             // Iterate over items
             items.forEach((item, i) => {
@@ -130,6 +131,26 @@ function calculateDevelopersByCountry(data)
     return sortedDevelopersByCountry;
 }
 
+// Function to calculate the numbers of developers having different years of experience
+function calculateDevelopersByExperience(data)
+{
+    const developersByExperience = {};
+
+    data.forEach((developer) => {
+        const yearsOfExperience = developer.years_of_experience;
+        developersByExperience[yearsOfExperience] = (developersByExperience[yearsOfExperience] || 0) + 1;
+    });
+
+    const sortedDevelopersByExperience = Object.entries(developersByExperience)
+        .sort((a, b) => parseInt(a[0]) - parseInt(b[0])) // Sort by years of experience in descending order
+        .reduce((acc, [yearsOfExperience, count]) => {
+            acc[yearsOfExperience] = count;
+            return acc;
+        }, {});
+
+    return sortedDevelopersByExperience;
+}
+
 // Function to show hide displayed rows
 function hideRows()
 {
@@ -167,23 +188,23 @@ function expandAndContract()
 {
     var button = document.getElementById("showRanking");
 
-      if (button.innerHTML === "Show Ranking")
-      {
+    if (button.innerHTML === "Show Ranking")
+    {
         button.innerHTML = "Hide Ranking";
         showHiddenRows()
-      } 
-      else 
-      {
+    } 
+    else 
+    {
         button.innerHTML = "Show Ranking";
         hideRows();
-      }
+    }
 }
 // <------------------------------------------------- (FINISH) Functions -------------------------------------------------> //
 
 
 // <--------------------------------------------------- (START) Charts ---------------------------------------------------> //
 // Charts
-function loadCharts(loadedData, developer_countries)
+function loadCharts(loadedData, developer_countries, developer_experience)
 {
     let creators = []
     let values = []
@@ -200,10 +221,10 @@ function loadCharts(loadedData, developer_countries)
     new Chart(chart1, {
     type: 'bar',
         data: {
-            labels: creators,
+            labels: Object.keys(developer_experience),
             datasets: [{
-                label: 'Number of 5-star reviews',
-                data: values,
+                label: 'Years of experience',
+                data: Object.values(developer_experience),
                 backgroundColor: ['rgba(171, 31, 28, 0.3)', 'rgba(42, 189, 221, 0.3)', 'rgba(255, 123, 98, 0.3)', 'rgba(180, 55, 210, 0.3)', 'rgba(89, 176, 167, 0.3)', 'rgba(201, 34, 145, 0.3)', 'rgba(112, 223, 76, 0.3)', 'rgba(15, 92, 188, 0.3)', 'rgba(255, 186, 52, 0.3)', 'rgba(110, 64, 48, 0.3)'],
                 borderColor: ["rgb(171, 31, 28)", "rgb(42, 189, 221)", "rgb(255, 123, 98)", "rgb(180, 55, 210)", "rgb(89, 176, 167)", "rgb(201, 34, 145)", "rgb(112, 223, 76)", "rgb(15, 92, 188)", "rgb(255, 186, 52)", "rgb(110, 64, 48)"],
                 borderWidth: 1,
@@ -279,44 +300,23 @@ function loadCharts(loadedData, developer_countries)
 
 // <--------------------------------------------------- (START) About ----------------------------------------------------> //
 // sekcja about
-const osoby = document.querySelectorAll('.strefa') // elementy o klasie stefa
+var tablinks = document.getElementsByClassName("tab-links");
+var tabcontents = document.getElementsByClassName("tab-contents");
 
-osoby.forEach(element => {      // dla kazdego elementu wykonuje
-    element.addEventListener('click', function(e) {    // po kliknieciu na dany element wykonuje sie funkcja
+function opentab(event, tabname)
+{
+    for(tablink of tablinks)
+    {
+        tablink.classList.remove("active-link");
+    }
 
-
-        let allOsoby = document.querySelectorAll('.strefa')
-        let isAlreadyOpened = e.target.classList.contains('opened')
-
-
-        Array.prototype.forEach.call(allOsoby, function(container) {
-            // strefa
-            container.style.width = '23%'
-            container.classList.remove('opened')
-            // opis header
-            var opis_header = container.querySelector(".opis_header")
-            opis_header.classList.remove('otwarty')
-            // opis
-            var opis = container.querySelector(".opis")
-            opis.classList.remove('otwarty')
-        }) 
-        // jesli ma klase opened to resetuje do podstawowego ustawienia
-
-
-        if (!isAlreadyOpened) {
-            // strefa
-            e.target.style.width = '60%'
-            e.target.classList.add('opened')
-            // opis header
-            var clickedOpis_header = e.target.querySelector(".opis_header")
-            clickedOpis_header.classList.add('otwarty')
-            // opis
-            var clickedOpis = e.target.querySelector(".opis")
-            clickedOpis.classList.add('otwarty')
-        }       
-        // jeśli nie ma klasy opened to rozszerza
-    })
-})
+    for(tabcontent of tabcontents)
+    {
+        tabcontent.classList.remove("active-tab");
+    }
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+}
 // <--------------------------------------------------- (FINISH) About ---------------------------------------------------> //
 
 

@@ -419,91 +419,6 @@ table td
     color: white;
 }
 
-.about_inside
-{
-    margin-left: auto;
-    margin-right: auto;
-    height: 80%;
-    width: 80%;
-    background-color: #232323;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.strefa
-{
-    width: 23%;
-    height: 90%;
-    margin: 2% 2% 2% 2%;
-    border-radius: 4px;
-    transition: 1s;
-}
-.strefa_inside
-{
-    padding: 3%;
-    background-color: rgba(0,0,0,0.5);
-    width: 100%;
-    height: 20%;
-    pointer-events: none;
-}
-
-.s1
-{
-    background-image: url(images/background5.png);
-}
-
-.s2
-{
-    background-image: url(images/background5.png);
-}
-
-.s3
-{
-    background-image: url(images/background5.png);
-}
-
-.s4
-{
-    background-image: url(images/background5.png);
-}
-
-.opis_header
-{
-    font-size: 20px; /*ewentualnie do zmiany font size */
-    font-weight: bold;
-    color: white;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
-
-.opis_header.otwarty
-{
-    opacity: 1;
-    transform: scaleY(1);
-}
-
-.opis
-{
-    font-size: 20px; /*ewentualnie do zmiany font size */
-    font-weight: bold;
-    color: white;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
-}
-
-.opis.otwarty
-{
-    opacity: 1;
-    transform: scaleY(1);
-}
-
-/*
 .grid-container 
 {
     display: grid;
@@ -513,18 +428,41 @@ table td
 
 .grid-item 
 {
-    background-color: #2b2de6;
+    background-color: #232323;
     border-radius: 20px;
     padding: 148px;
     font-size: 30px;
     text-align: center;
-} */
+}
 
-/* .row
+.row
 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.about-col-1
+{
+    flex-basis: 35%;
+}
+
+.about-col-1 img
+{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.about-col-2
+{
+    flex-basis: 60%;
+}
+
+.sub-title
+{
+    font-size: 33px;
+    font-weight: 600;
+    color: white;
 }
 
 .tab-titles
@@ -566,6 +504,7 @@ table td
 
 .tab-contents ul li
 {
+    font-size: 14px;
     list-style: none;
     margin: 10px 0;
 }
@@ -574,7 +513,7 @@ table td
 {
     margin-top: 10px;
     color: rgb(102, 190, 36); 
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 550;
 }
 
@@ -586,7 +525,7 @@ table td
 .tab-contents.active-tab
 {
     display: block;
-} */
+}
 
 /* <!-- -------------footer------------- --> */
 #footer
