@@ -15,7 +15,7 @@ sr.reveal("#buttonSection", {delay: 0, duration: 2000, origin: "bottom"});
 sr.reveal("#charts", {delay: 0, duration: 2000, origin: "bottom"});
 sr.reveal("#chart1", {delay: 0, duration: 2000, origin: "left"});
 sr.reveal("#chart2", {delay: 0, duration: 2000, origin: "right"});
-sr.reveal("#about", {delay: 0, duration: 2000, origin: "bottom"});
+sr.reveal("#about", {delay: 0, duration: 2000,reset: false, origin: "bottom"});
 // <------------------------------------------------ (FINISH) ScrollReveal ------------------------------------------------> //
 
 
@@ -300,11 +300,12 @@ function loadCharts(loadedData, developer_countries, developer_experience)
 
 // <--------------------------------------------------- (START) About ----------------------------------------------------> //
 // sekcja about
-var tablinks = document.getElementsByClassName("tab-links");
-var tabcontents = document.getElementsByClassName("tab-contents");
+
 
 function opentab(event, tabname)
 {
+    var tablinks = document.querySelectorAll('.tab_link_piotrh');
+    var tabcontents = document.querySelectorAll('.tab_content_piotrh');
     for(tablink of tablinks)
     {
         tablink.classList.remove("active-link");
@@ -316,6 +317,71 @@ function opentab(event, tabname)
     }
     event.currentTarget.classList.add("active-link");
     document.getElementById(tabname).classList.add("active-tab");
+}
+
+
+
+
+
+function opentab2(event, tabname)
+{
+    var tablinks = document.querySelectorAll('.tab_link_kacper');
+    var tabcontents = document.querySelectorAll('.tab_content_kacper');
+    for(tablink of tablinks)
+    {
+        tablink.classList.remove("active-link");
+    }
+
+    for(tabcontent of tabcontents)
+    {
+        tabcontent.classList.remove("active-tab");
+    }
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+}
+
+
+
+
+
+function opentab3(event, tabname)
+{
+    var tablinks = document.querySelectorAll('.tab_link_szymon');
+    var tabcontents = document.querySelectorAll('.tab_content_szymon');
+    for(tablink of tablinks)
+    {
+        tablink.classList.remove("active-link");
+    }
+
+    for(tabcontent of tabcontents)
+    {
+        tabcontent.classList.remove("active-tab");
+    }
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+
+}
+
+
+
+
+
+function opentab4(event, tabname)
+{
+    var tablinks = document.querySelectorAll('.tab_link_piotrs');
+    var tabcontents = document.querySelectorAll('.tab_content_piotrs');
+    for(tablink of tablinks)
+    {
+        tablink.classList.remove("active-link");
+    }
+
+    for(tabcontent of tabcontents)
+    {
+        tabcontent.classList.remove("active-tab");
+    }
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+
 }
 // <--------------------------------------------------- (FINISH) About ---------------------------------------------------> //
 

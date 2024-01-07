@@ -415,7 +415,7 @@ table td
 /* <!-- -------------about------------- --> */
 #about 
 {
-    height: 125vh;
+    height: fit-content;
     color: white;
 }
 
@@ -424,11 +424,11 @@ table td
     display: grid;
     grid-template-columns: 50% 50%;
     grid-gap: 40px;
-   
 }
 
 .grid-item 
 {
+    height: fit-content;
     background-color: #232323;
     border-radius: 20px;
     font-size: 30px;
@@ -460,9 +460,10 @@ table td
 
 .sub-title
 {
+    margin-top: 2%;
     font-size: 33px;
     font-weight: 600;
-    color: white;
+    color: #2392fb;
 }
 
 .tab-titles
@@ -485,7 +486,7 @@ table td
     content: "";
     width: 0;
     height: 3px;
-    background: rgb(102, 190, 36);
+    background: #2392fb;
     position: absolute;
     left: 0;
     bottom: -6px;
@@ -512,7 +513,7 @@ table td
 .tab-contents ul li span
 {
     margin-top: 10px;
-    color: rgb(102, 190, 36); 
+    color: #2392fb; 
     font-size: 14px;
     font-weight: 550;
 }
