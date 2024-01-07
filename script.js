@@ -42,7 +42,7 @@ function fetchJSON()
             items.forEach((item, i) => {
 
                 var name_element = document.getElementsByClassName("dev-name")[i]
-                var fullName = item.first_name + ' ' + item.last_name
+                var fullName = item.first_name + " " + item.last_name
                 name_element.textContent = fullName
 
                 var protfolio_element = document.getElementsByClassName("dev-portfolio")[i]
@@ -211,7 +211,7 @@ function loadCharts(loadedData, developer_countries, developer_experience)
 
     for(k in loadedData)
     {
-        creators.push(loadedData[k].first_name+' '+loadedData[k].last_name)
+        creators.push(loadedData[k].first_name+" "+loadedData[k].last_name)
         values.push(loadedData[k].num_5_star_reviews)
     }
 
@@ -267,15 +267,15 @@ function loadCharts(loadedData, developer_countries, developer_experience)
 
 
     // Doughnut Chart
-    const chart2 = document.getElementById('myChart2');
+    const chart2 = document.getElementById("myChart2");
     new Chart(chart2, {
-        type: 'doughnut',
+        type: "doughnut",
         data: {
             labels: Object.keys(developer_countries),
             datasets: [{
-                label: 'Number of Developers',
+                label: "Number of Developers",
                 data: Object.values(developer_countries),
-                backgroundColor: ['rgba(171, 31, 28, 0.3)', 'rgba(42, 189, 221, 0.3)', 'rgba(255, 123, 98, 0.3)', 'rgba(180, 55, 210, 0.3)', 'rgba(89, 176, 167, 0.3)', 'rgba(201, 34, 145, 0.3)', 'rgba(112, 223, 76, 0.3)', 'rgba(15, 92, 188, 0.3)', 'rgba(255, 186, 52, 0.3)', 'rgba(110, 64, 48, 0.3)'],
+                backgroundColor: ["rgba(171, 31, 28, 0.3)", "rgba(42, 189, 221, 0.3)", "rgba(255, 123, 98, 0.3)", "rgba(180, 55, 210, 0.3)", "rgba(89, 176, 167, 0.3)", "rgba(201, 34, 145, 0.3)", "rgba(112, 223, 76, 0.3)", "rgba(15, 92, 188, 0.3)", "rgba(255, 186, 52, 0.3)", "rgba(110, 64, 48, 0.3)"],
                 borderColor: ["rgb(171, 31, 28)", "rgb(42, 189, 221)", "rgb(255, 123, 98)", "rgb(180, 55, 210)", "rgb(89, 176, 167)", "rgb(201, 34, 145)", "rgb(112, 223, 76)", "rgb(15, 92, 188)", "rgb(255, 186, 52)", "rgb(110, 64, 48)"],
                 borderWidth: 1,
             }]
@@ -284,15 +284,15 @@ function loadCharts(loadedData, developer_countries, developer_experience)
             plugins: {
                 title: {
                     display: true,
-                    text: 'Number of developers from each country',
+                    text: "Number of developers from each country",
                     font: {
                         size: 18
                     },
-                    color: 'lightgray'
+                    color: "lightgray"
                 },
                 legend: {
                     labels: {
-                        color: 'gray'
+                        color: "gray"
                     }
                 },
             },
@@ -306,8 +306,8 @@ function loadCharts(loadedData, developer_countries, developer_experience)
 // About functions to open tabs
 function opentab(event, tabname)
 {
-    var tablinks = document.querySelectorAll('.tab_link_piotrh');
-    var tabcontents = document.querySelectorAll('.tab_content_piotrh');
+    var tablinks = document.querySelectorAll(".tab_link_piotrh");
+    var tabcontents = document.querySelectorAll(".tab_content_piotrh");
     for(tablink of tablinks)
     {
         tablink.classList.remove("active-link");
@@ -324,8 +324,8 @@ function opentab(event, tabname)
 
 function opentab2(event, tabname)
 {
-    var tablinks = document.querySelectorAll('.tab_link_kacper');
-    var tabcontents = document.querySelectorAll('.tab_content_kacper');
+    var tablinks = document.querySelectorAll(".tab_link_kacper");
+    var tabcontents = document.querySelectorAll(".tab_content_kacper");
     for(tablink of tablinks)
     {
         tablink.classList.remove("active-link");
@@ -342,8 +342,8 @@ function opentab2(event, tabname)
 
 function opentab3(event, tabname)
 {
-    var tablinks = document.querySelectorAll('.tab_link_szymon');
-    var tabcontents = document.querySelectorAll('.tab_content_szymon');
+    var tablinks = document.querySelectorAll(".tab_link_szymon");
+    var tabcontents = document.querySelectorAll(".tab_content_szymon");
     for(tablink of tablinks)
     {
         tablink.classList.remove("active-link");
@@ -361,8 +361,8 @@ function opentab3(event, tabname)
 
 function opentab4(event, tabname)
 {
-    var tablinks = document.querySelectorAll('.tab_link_piotrs');
-    var tabcontents = document.querySelectorAll('.tab_content_piotrs');
+    var tablinks = document.querySelectorAll(".tab_link_piotrs");
+    var tabcontents = document.querySelectorAll(".tab_content_piotrs");
     for(tablink of tablinks)
     {
         tablink.classList.remove("active-link");
