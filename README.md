@@ -50,7 +50,7 @@ i) https://www.chartjs.org/
 ii) https://naver.github.io/billboard.js/  
 iii) https://www.freecodecamp.org/news/these-are-the-best-javascript-chartlibraries-for-2019-29782f5e1dc2/  
 
-<br>(❌) 7. Host the website on github. The project website should be available at the URL:  
+<br>(✔️) 7. Host the website on github. The project website should be available at the URL:  
 https://<github_account_name>.github.io/EDI  
 https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-githubpages-site  
 
