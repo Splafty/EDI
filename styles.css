@@ -137,7 +137,7 @@ header ul li a::after
     content: "";
     width: 0;
     height: 3px;
-    background: #ffffff;
+    background: #2392fb;
     position: absolute;
     left: 0;
     bottom: -6px;
@@ -394,6 +394,7 @@ table td
 
 .charts-container
 {
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -421,6 +422,7 @@ table td
 
 .grid-container 
 {
+    margin-top: 30px;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-gap: 40px;
@@ -428,7 +430,7 @@ table td
 
 .grid-item 
 {
-    height: fit-content;
+    height: 500px;
     background-color: #232323;
     border-radius: 20px;
     font-size: 30px;
@@ -450,26 +452,43 @@ table td
 .about-col-1 img
 {
     width: 100%;
-    border-radius: 10px;
+    height: 500px;
+    border-radius: 20px 0px 0px 20px;
 }
 
 .about-col-2
 {
-    flex-basis: 60%;
+    flex-basis: 61%;
 }
 
-.sub-title
+.name-surname
 {
-    margin-top: 2%;
-    font-size: 33px;
+    margin: 2%;
+    font-size: 24px;
     font-weight: 600;
     color: #2392fb;
+    text-align: center;
+}
+
+.about-text
+{
+    padding-right: 4%;
+}
+
+.tab-contents ul li.achievement-element
+{
+    margin: 0px 0px 6px 0px;
+}
+
+.tab-contents ul li.achievements-type
+{
+    margin: 20px 0px 4px 0px;
 }
 
 .tab-titles
 {
     display: flex;
-    margin: 20px 0 40px;
+    margin: 20px 0;
 }
 
 .tab-links
@@ -508,26 +527,67 @@ table td
     font-size: 14px;
     list-style: none;
     margin: 10px 0;
+    padding-right: 4%;
 }
 
 .tab-contents ul li span
 {
     margin-top: 10px;
     color: #2392fb; 
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 550;
 }
 
 .tab-contents
 {
-    display: none;
+    animation: fade-out 0.5s ease forwards;
 }
 
-.tab-contents.active-tab
+.active-tab
 {
     display: block;
 }
 
+.show
+{
+    animation: fade-in 1s ease forwards;
+}
+
+@keyframes fade-in
+{
+    0%
+    {
+        display: none;
+    }
+
+    50%
+    {
+        display: none;
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    100%
+    {
+        opacity: 1;
+        display: block;
+        transform: translateX(0);
+    }    
+}
+
+@keyframes fade-out
+{
+    0%
+    {
+        opacity: 1;
+    }
+
+    100%
+    {
+        opacity: 0;
+        display: none;
+    }    
+}
 /* <!-- -------------footer------------- --> */
 #footer
 {

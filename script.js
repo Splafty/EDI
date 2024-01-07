@@ -15,7 +15,7 @@ sr.reveal("#buttonSection", {delay: 0, duration: 2000, origin: "bottom"});
 sr.reveal("#charts", {delay: 0, duration: 2000, origin: "bottom"});
 sr.reveal("#chart1", {delay: 0, duration: 2000, origin: "left"});
 sr.reveal("#chart2", {delay: 0, duration: 2000, origin: "right"});
-sr.reveal("#about", {delay: 0, duration: 2000,reset: false, origin: "bottom"});
+sr.reveal("#about", {delay: 0, duration: 2000, origin: "bottom"});
 // <------------------------------------------------ (FINISH) ScrollReveal ------------------------------------------------> //
 
 
@@ -303,10 +303,7 @@ function loadCharts(loadedData, developer_countries, developer_experience)
 
 
 // <--------------------------------------------------- (START) About ----------------------------------------------------> //
-// sekcja about
-
-
-
+// About functions to open tabs
 function opentab(event, tabname)
 {
     var tablinks = document.querySelectorAll('.tab_link_piotrh');
@@ -318,14 +315,11 @@ function opentab(event, tabname)
 
     for(tabcontent of tabcontents)
     {
-        tabcontent.classList.remove("active-tab");
+        tabcontent.classList.remove("active-tab", "show");
     }
     event.currentTarget.classList.add("active-link");
-    document.getElementById(tabname).classList.add("active-tab");
+    document.getElementById(tabname).classList.add("active-tab", "show");
 }
-
-
-
 
 
 function opentab2(event, tabname)
@@ -339,14 +333,11 @@ function opentab2(event, tabname)
 
     for(tabcontent of tabcontents)
     {
-        tabcontent.classList.remove("active-tab");
+        tabcontent.classList.remove("active-tab", "show");
     }
     event.currentTarget.classList.add("active-link");
-    document.getElementById(tabname).classList.add("active-tab");
+    document.getElementById(tabname).classList.add("active-tab", "show");
 }
-
-
-
 
 
 function opentab3(event, tabname)
@@ -360,15 +351,12 @@ function opentab3(event, tabname)
 
     for(tabcontent of tabcontents)
     {
-        tabcontent.classList.remove("active-tab");
+        tabcontent.classList.remove("active-tab", "show");
     }
     event.currentTarget.classList.add("active-link");
-    document.getElementById(tabname).classList.add("active-tab");
+    document.getElementById(tabname).classList.add("active-tab", "show");
 
 }
-
-
-
 
 
 function opentab4(event, tabname)
@@ -382,34 +370,10 @@ function opentab4(event, tabname)
 
     for(tabcontent of tabcontents)
     {
-        tabcontent.classList.remove("active-tab");
+        tabcontent.classList.remove("active-tab", "show");
     }
     event.currentTarget.classList.add("active-link");
-    document.getElementById(tabname).classList.add("active-tab");
+    document.getElementById(tabname).classList.add("active-tab", "show");
 
 }
 // <--------------------------------------------------- (FINISH) About ---------------------------------------------------> //
-
-
-
-
-
-
-// // Recycle??
-// var tablinks = document.getElementsByClassName("tab-links");
-// var tabcontents = document.getElementsByClassName("tab-contents");
-
-// function opentab(event, tabname)
-// {
-//     for(tablink of tablinks)
-//     {
-//         tablink.classList.remove("active-link");
-//     }
-    
-//     for(tabcontent of tabcontents)
-//     {
-//         tabcontent.classList.remove("active-tab");
-//     }
-//     event.currentTarget.classList.add("active-link");
-//     document.getElementById(tabname).classList.add("active-tab");
-// }
