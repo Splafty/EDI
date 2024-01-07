@@ -424,6 +424,7 @@ table td
     display: grid;
     grid-template-columns: 50% 50%;
     grid-gap: 40px;
+   
 }
 
 .grid-item 
@@ -431,7 +432,7 @@ table td
     background-color: #232323;
     border-radius: 20px;
     font-size: 30px;
-    text-align: center;
+    text-align: left;
 }
 
 .row
