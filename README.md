@@ -33,7 +33,7 @@ data in the store, top player ranking, country data, and more. Familiarize yours
 with the types of data available on mockaroo.com  
 d. Create an API to retrieve 100 rows of data in JSON using the API and GET method.  
 
-<br>(❌) 6. Create a website for retrieving and displaying data:  
+<br>(✔️) 6. Create a website for retrieving and displaying data:  
 a. On the project website display project title and project team members.  
 b. Download data using the created API.  
 c. Use XMLHttpRequest, Fetch API or JQuery library to retrieve data from Mockaroo
