@@ -217,16 +217,16 @@ function loadCharts(loadedData, developer_countries, developer_experience)
 
     
     //Bar Chart
-    const chart1 = document.getElementById('myChart1');
+    const chart1 = document.getElementById("myChart1");
     new Chart(chart1, {
-    type: 'bar',
+    type: "bar",
         data: {
-            labels: Object.keys(developer_experience),
+            labels: Object.keys(developer_experience).map(year =>  `${year} years of experience`),
             datasets: [{
-                label: 'Years of experience',
+                label: "Number of developers",
                 data: Object.values(developer_experience),
-                backgroundColor: ['rgba(171, 31, 28, 0.3)', 'rgba(42, 189, 221, 0.3)', 'rgba(255, 123, 98, 0.3)', 'rgba(180, 55, 210, 0.3)', 'rgba(89, 176, 167, 0.3)', 'rgba(201, 34, 145, 0.3)', 'rgba(112, 223, 76, 0.3)', 'rgba(15, 92, 188, 0.3)', 'rgba(255, 186, 52, 0.3)', 'rgba(110, 64, 48, 0.3)'],
-                borderColor: ["rgb(171, 31, 28)", "rgb(42, 189, 221)", "rgb(255, 123, 98)", "rgb(180, 55, 210)", "rgb(89, 176, 167)", "rgb(201, 34, 145)", "rgb(112, 223, 76)", "rgb(15, 92, 188)", "rgb(255, 186, 52)", "rgb(110, 64, 48)"],
+                backgroundColor: ["rgba(171, 31, 28, 0.3)", "rgba(42, 189, 221, 0.3)", "rgba(112, 223, 76, 0.3)", "rgba(255, 186, 52, 0.3)"],
+                borderColor: ["rgb(171, 31, 28)", "rgb(42, 189, 221)", "rgb(112, 223, 76)", "rgb(255, 186, 52)"],
                 borderWidth: 1,
             }]
         },
@@ -234,32 +234,36 @@ function loadCharts(loadedData, developer_countries, developer_experience)
             scales: {
                 x: {
                     ticks: {
-                        color: 'gray'
+                        display:true,
+                        color: "gray"
                     }
                 },
                 y: {
                     ticks: {
-                        color: 'gray',
+                        display:true,
+                        color: "gray",
                     }
                 }
             },
             plugins: {
                 title: {
                     display: true,
-                    text: 'API based bar chart',
+                    text: "Number of developers with different experience",
                     font: {
                         size: 18
                     },
-                    color: 'lightgray'
+                    color: "lightgray"
                 },
                 legend: {
+                    display:true,
                     labels: {
-                        color: 'gray'
+                        color: "gray"
                     }
                 },
             },
         }
     });
+
 
 
     // Doughnut Chart
@@ -280,7 +284,7 @@ function loadCharts(loadedData, developer_countries, developer_experience)
             plugins: {
                 title: {
                     display: true,
-                    text: 'API based doughnut chart',
+                    text: 'Number of developers from each country',
                     font: {
                         size: 18
                     },
@@ -300,6 +304,7 @@ function loadCharts(loadedData, developer_countries, developer_experience)
 
 // <--------------------------------------------------- (START) About ----------------------------------------------------> //
 // sekcja about
+
 
 
 function opentab(event, tabname)
