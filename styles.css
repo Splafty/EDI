@@ -148,7 +148,6 @@ header ul li a:hover::after
 
 .home-text 
 {
-    user-select: none;
     margin-top: 220px;
     width: 100%;
     height: 60vw;
@@ -411,13 +410,13 @@ table td
 {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto auto;
     grid-gap: 40px;
 }
 
 .grid-item 
 {
-    height: 500px;
+    height: fit-content;
     background-color: #232323;
     border-radius: 20px;
     font-size: 30px;
@@ -434,6 +433,7 @@ table td
 .about-col-1
 {
     flex-basis: 35%;
+    height: 500px;
 }
 
 .about-col-1 img

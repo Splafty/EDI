@@ -10,6 +10,7 @@ const sr = ScrollReveal ({
 sr.reveal(".home-text", {delay: 100, duration: 2500, reset: false, origin: "top"});
 sr.reveal("#ranking-grid-row-1", {delay: 0, duration: 2500, origin: "left"});
 sr.reveal("#ranking-grid-row-2", {delay: 0, duration: 2500, origin: "right"});
+sr.reveal("#ranking", {delay: 0, duration: 2000, origin: "bottom"});
 sr.reveal(".smallTable", {delay: 0, duration: 2000, origin: "bottom"});
 sr.reveal("#buttonSection", {delay: 0, duration: 2000, origin: "bottom"});
 sr.reveal("#charts", {delay: 0, duration: 2000, origin: "bottom"});
@@ -23,8 +24,7 @@ sr.reveal("#about", {delay: 0, duration: 2000, origin: "bottom"});
 // Function to fetch JSON data
 function fetchJSON()
 {
-    //!!! LINK DO ZMIANY
-    fetch("https://api.npoint.io/09200a2ccc1c2c79fa16") // Fetch JSON data from the API 
+    fetch("https://my.api.mockaroo.com/Web-Dev-Ranking.json?key=d08f0cf0") // Fetch JSON data from the API 
         .then(response => response.json()) // Convert the response into JSON format
         .then(data => {
             // Sort items by most 5_star_reviews
@@ -34,6 +34,8 @@ function fetchJSON()
 
             // Function to calculate the numbers of developers from each country
             var developer_countries = calculateDevelopersByCountry(data)
+
+            // Function to calculate the numbers of developers by the experience
             var developer_experience = calculateDevelopersByExperience(data)
             
             loadCharts(items, developer_countries, developer_experience) // Making Charts
@@ -70,6 +72,7 @@ function fetchJSON()
             // Position variable
             var position = 1
 
+            // Data for the table
             const items2 = data;
 
             // Iterate over items
@@ -131,6 +134,7 @@ function calculateDevelopersByCountry(data)
     return sortedDevelopersByCountry;
 }
 
+
 // Function to calculate the numbers of developers having different years of experience
 function calculateDevelopersByExperience(data)
 {
@@ -142,7 +146,7 @@ function calculateDevelopersByExperience(data)
     });
 
     const sortedDevelopersByExperience = Object.entries(developersByExperience)
-        .sort((a, b) => parseInt(a[0]) - parseInt(b[0])) // Sort by years of experience in descending order
+        .sort((a, b) => parseInt(b[0]) - parseInt(a[0])) // Sort by years of experience in descending order
         .reduce((acc, [yearsOfExperience, count]) => {
             acc[yearsOfExperience] = count;
             return acc;
@@ -150,6 +154,7 @@ function calculateDevelopersByExperience(data)
 
     return sortedDevelopersByExperience;
 }
+
 
 // Function to show hide displayed rows
 function hideRows()
@@ -167,6 +172,7 @@ function hideRows()
     sr.reveal(".smallTable", {delay: 0, duration: 1000, origin: "bottom"});
 }
 
+
 // Function to show hidden rows
 function showHiddenRows()
 {
@@ -182,6 +188,7 @@ function showHiddenRows()
 
     sr.reveal(".bigTable", {delay: 0, duration: 1000, origin: "bottom"});
 }
+
 
 // Function to show table
 function expandAndContract() 
@@ -263,7 +270,6 @@ function loadCharts(loadedData, developer_countries, developer_experience)
             },
         }
     });
-
 
 
     // Doughnut Chart
@@ -374,6 +380,5 @@ function opentab4(event, tabname)
     }
     event.currentTarget.classList.add("active-link");
     document.getElementById(tabname).classList.add("active-tab", "show");
-
 }
 // <--------------------------------------------------- (FINISH) About ---------------------------------------------------> //
