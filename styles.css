@@ -28,6 +28,93 @@
     cursor: pointer;
 }
 
+/* <!-- -------------hamburger menu------------- --> */
+.menu-icon
+{
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    z-index: 102;
+    position: fixed;
+}
+
+.menu-icon:hover
+{
+    color: rgb(43, 139, 230);
+}
+
+.menu-x
+{
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    z-index: 102;
+    /* position: fixed; */
+}
+
+.menu-x:hover
+{
+    color: rgb(43, 139, 230);
+}
+
+.side-menu
+{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: black;
+    padding: 60px 20px;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.5);
+    transition: right 0.3s ease;
+    z-index: 101;
+}
+
+.side-menu.active
+{
+    right: 0;
+}
+
+.nav-links
+{
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+}
+
+.nav-links li a
+{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-links li a:hover
+{
+    color: rgb(43, 139, 230);
+}
+
+@media (max-width: 800px)
+{
+    .menu-icon
+    {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .navigation-menu
+    {
+        display: none;
+    }
+}
+
 /* <!-- -------------general------------- --> */
 *
 {
@@ -53,15 +140,23 @@ body
     padding: 20px 10%;
 }
 
+@media (max-width: 1100px)
+{
+    .container
+    {
+        padding: 20px 5%;
+    }   
+}
+
 p
 {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .section-title
 {
     margin-top: 80px;
-    font-size: 56px;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
     font-weight: 600;
     text-align: left;
 }
@@ -69,7 +164,7 @@ p
 .subtitle
 {
     margin-top: 4px;
-    font-size: 24px;
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
     font-weight: 400;
     text-align: left;
 }
@@ -86,7 +181,7 @@ header
     display: flex;
     justify-content: space-between;
     align-items: baseline; 
-    z-index: 100000;
+    z-index: 100;
 }
 
 header #logo
@@ -156,12 +251,12 @@ header ul li a:hover::after
 
 .home-text h1
 {
-    font-size: 200px;
+    font-size: clamp(3rem, 12vw, 12.5rem);
 }
 
 .home-text h2
 {
-    font-size: 50px;
+    font-size: clamp(1.5rem, 5vw, 3.125rem);
     margin-bottom: 50px;
 }
 
@@ -171,7 +266,7 @@ header ul li a:hover::after
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;
-    padding: 20px 140px;
+    padding: clamp(0.75rem, 2vh, 1.25rem) clamp(2rem, 10vw, 8rem);
     background-color: #2b8be6;
     color: #ffffff;
     border-radius: 100px;
@@ -186,31 +281,14 @@ header ul li a:hover::after
 }
 
 /* <!-- -------------ranking------------- --> */
-#ranking 
-{
-    background-color: black;
-    color: #ffffff;
-}
-
 .ranking-grid
 {
-    width: 80vw;
-    margin-top: 30px;
     display: grid;
+    margin-top: 30px;
+    justify-items: center;
     grid-template-rows: auto;
-    grid-template-columns: auto auto auto auto auto;
-    row-gap: 20px;
-}
-
-#ranking-container
-{
-    padding-bottom: 0px;
-}
-
-#ranking-grid-row-2
-{
-    margin-top: 0px;
-    padding-bottom: -20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(0.8rem, 3vw, 1.6rem);
 }
 
 .rank-number
@@ -221,11 +299,21 @@ header ul li a:hover::after
 .podium
 {   
     text-align: center;
-    height: 640px;
-    width: 280px;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
     border-radius: 22px;
     transition: 0.5s;
-    background: black;
+}
+
+.dev-data
+{
+    padding: 0.8rem;
+}
+
+.podium:hover
+{
+    transform: scale(1.02);
 }
 
 .podium h4
@@ -240,7 +328,6 @@ header ul li a:hover::after
 
 .podium .dev-name
 {
-    padding-top: 10px;
     padding-bottom: 2px;
 }
 
@@ -248,8 +335,10 @@ header ul li a:hover::after
 {
     border-radius: 22px;
     padding: 0;
-    height: 400px;
-    width: 280px;
+    background-size: cover;
+    background-position: center;
+    height: clamp(22rem, 50vw, 25rem);
+    width: 100%
 }
 
 #portrait-1
@@ -307,8 +396,7 @@ header ul li a:hover::after
 #rankingTable
 {
     padding-top: 42px;
-    background-color: black;
-    color: #ffffff;
+    overflow: auto;
 }
 
 table 
@@ -324,7 +412,7 @@ table th
 {
     padding: 11px;
     text-align: center;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 table td 
@@ -333,8 +421,7 @@ table td
     border-bottom: 2px solid white;
     padding: 11px;
     text-align: center;
-    font-size: 16px;
-
+    font-size: 1rem;
 }
 
 .hidden-row {
@@ -356,7 +443,7 @@ table td
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;
-    padding: 20px 140px;
+    padding: clamp(0.75rem, 2vh, 1.25rem) clamp(2rem, 10vw, 8rem);
     background-color: #2b8be6;
     color: #ffffff;
     border-radius: 100px;
@@ -371,27 +458,18 @@ table td
 }
 
 /* <!-- -------------charts------------- --> */
-#charts 
-{
-    height: 100vh;
-    background-color: black;
-    color: white;
-}
-
 .charts-container
 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+    grid-gap: clamp(30px, 5vw, 40px);
     margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
-
 
 #chart1, #chart2 
 {
     background-color: #232323;
-    width: 48.5%;
-    height: 640px;
+    height: clamp(18rem, 60vw, 34rem);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -403,49 +481,45 @@ table td
 #about 
 {
     height: fit-content;
-    color: white;
 }
 
 .grid-container 
 {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 40px;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+    grid-gap: clamp(30px, 5vw, 40px);
 }
 
 .grid-item 
 {
-    height: fit-content;
     background-color: #232323;
     border-radius: 20px;
     font-size: 30px;
     text-align: left;
-}
-
-.row
-{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    max-width: 600px;
+    min-width: 360px;
 }
 
 .about-col-1
 {
     flex-basis: 35%;
-    height: 500px;
+    height: auto;
 }
 
 .about-col-1 img
 {
     width: 100%;
-    height: 500px;
-    border-radius: 20px 0px 0px 20px;
+    max-height: 500px;
+    border-radius: 20px;
+    object-fit: cover;
 }
 
 .about-col-2
 {
-    flex-basis: 61%;
+    flex-basis: 60%;
+    padding: 1rem;
 }
 
 .name-surname
@@ -457,31 +531,16 @@ table td
     text-align: center;
 }
 
-.about-text
-{
-    padding-right: 4%;
-}
-
-.tab-contents ul li.achievement-element
-{
-    margin: 0px 0px 6px 0px;
-}
-
-.tab-contents ul li.achievements-type
-{
-    margin: 20px 0px 4px 0px;
-}
-
 .tab-titles
 {
     display: flex;
+    justify-content: space-between;
     margin: 20px 0;
 }
 
 .tab-links
 {
-    margin-right: 50px;
-    font-size: 20px;
+    font-size: clamp(1rem, 3vw, 1.25rem);
     font-weight: 650;
     cursor: pointer;
     position: relative;
@@ -511,23 +570,21 @@ table td
 
 .tab-contents ul li
 {
-    font-size: 14px;
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
     list-style: none;
     margin: 10px 0;
-    padding-right: 4%;
 }
 
 .tab-contents ul li span
 {
-    margin-top: 10px;
     color: #2392fb; 
-    font-size: 16px;
+    font-size: clamp(0.9rem, 2.8vw, 1rem);
     font-weight: 550;
 }
 
 .tab-contents
 {
-    animation: fade-out 0.5s ease forwards;
+    animation: fade-out 0.2s ease forwards;
 }
 
 .active-tab
@@ -537,7 +594,27 @@ table td
 
 .show
 {
-    animation: fade-in 1s ease forwards;
+    animation: fade-in 0.4s ease forwards;
+}
+
+#about-image-PH
+{
+    object-position: 50% 30%;
+}
+
+#about-image-KK
+{
+    object-position: 50% 20%;
+}
+
+#about-image-SC
+{
+    object-position: 50% 40%;
+}
+
+#about-image-PS
+{
+    object-position: 50% 10%;
 }
 
 @keyframes fade-in
@@ -593,19 +670,20 @@ table td
 
 #footer .container .row
 {
-    text-align: center;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(30px, 5vw, 40px);
+    text-align: center;
+}
+
+.internet-column
+{
+    flex: 1 1 clamp(250px, 30%, 400px);
+    max-width: 100%;
 }
 
 /* <!-- -------footer-col-1------- --> */
-
-.footer-col-1
-{
-    flex-basis: 30%;
-}
-
 .footer-col-1 ul li
 {
     list-style: none;
@@ -626,26 +704,21 @@ table td
 }
 
 /* <!-- -------footer-col-2------- --> */
-.footer-col-2
-{
-    flex-basis: 30%;
-}
-
 .footer-col-2 .search-text
 {
-    font-size: 18px;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     font-weight: 550;
 }
 
 .footer-col-2 .search-block
 {
-    font-size: 14px;
+    font-size: clamp(0.8rem, 2vw, 1rem);
     text-align: center;
     margin: 10px;
     border-color: white;
     border-radius: 5px;
-    width: 300px;
-    height: 40px;
+    width: clamp(15rem, 70vw, 18.75rem);
+    height: clamp(2rem, 5vh, 2.5rem);
 }
 
 .footer-col-2 .search-button
@@ -668,11 +741,6 @@ table td
 }
 
 /* <!-- -------footer-col-3------- --> */
-.footer-col-3
-{
-    flex-basis: 30%;
-}
-
 .footer-col-3 .social-media
 {
     margin-top: 20px;
@@ -682,7 +750,7 @@ table td
 {
     color: white;
     cursor: pointer;
-    font-size: 24px;
+    font-size: clamp(1.5rem, 2vw, 1.625rem);
     margin: 10px;
     transition: 0.5s;
 }

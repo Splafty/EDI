@@ -1,25 +1,3 @@
-// <------------------------------------------------ (START) ScrollReveal ------------------------------------------------> //
-// ScrollReveal - cool reveal
-const sr = ScrollReveal ({
-    distance: "60px",
-    duration: 3000,
-    delay: 450,
-    reset: true
-})
-
-sr.reveal(".home-text", {delay: 100, duration: 2500, reset: false, origin: "top"});
-sr.reveal("#ranking-grid-row-1", {delay: 0, duration: 2500, origin: "left"});
-sr.reveal("#ranking-grid-row-2", {delay: 0, duration: 2500, origin: "right"});
-sr.reveal("#ranking", {delay: 0, duration: 2000, origin: "bottom"});
-sr.reveal(".smallTable", {delay: 0, duration: 2000, origin: "bottom"});
-sr.reveal("#buttonSection", {delay: 0, duration: 2000, origin: "bottom"});
-sr.reveal("#charts", {delay: 0, duration: 2000, origin: "bottom"});
-sr.reveal("#chart1", {delay: 0, duration: 2000, origin: "left"});
-sr.reveal("#chart2", {delay: 0, duration: 2000, origin: "right"});
-sr.reveal("#about", {delay: 0, duration: 2000, origin: "bottom"});
-// <------------------------------------------------ (FINISH) ScrollReveal ------------------------------------------------> //
-
-
 // <------------------------------------------------- (START) FetchJSON --------------------------------------------------> //
 // Function to fetch JSON data
 function fetchJSON()
@@ -40,30 +18,31 @@ function fetchJSON()
             
             loadCharts(items, developer_countries, developer_experience) // Making Charts
 
-            // Iterate over items
-            items.forEach((item, i) => {
+            const container = document.getElementById("ranking-grid"); // Finding container for ranking
 
-                var name_element = document.getElementsByClassName("dev-name")[i]
-                var fullName = item.first_name + " " + item.last_name
-                name_element.textContent = fullName
+            // Iterate over sliced items
+            items.forEach((dev, index) => {
+                const podium = document.createElement("div");
+                podium.className = "podium";
 
-                var protfolio_element = document.getElementsByClassName("dev-portfolio")[i]
-                protfolio_element.textContent = item.portfolio_link
+                const rankEmojis = ["🥇", "🥈", "🥉"];
+                const rankLabel = index < 3 ? `${rankEmojis[index]} Rank: ${index + 1}` : `Rank: ${index + 1}`;
 
-                var reviews_element = document.getElementsByClassName("dev-reviews")[i]
-                reviews_element.textContent += item.num_5_star_reviews
+                podium.innerHTML = `
+                    <h3 class="rank-number">${rankLabel}</h3>
+                    <div class="portrait" id="portrait-${index + 1}"></div>
+                    <div class="dev-data">
+                        <h3 class="dev-name">${dev.first_name} ${dev.last_name}</h3>
+                        <h4 class="dev-portfolio">${dev.portfolio_link}</h4>
+                        <p class="dev-reviews">★ 5 star reviews: ${dev.num_5_star_reviews}</p>
+                        <p class="dev-websites-created">★ Websites created: ${dev.total_websites_created}</p>
+                        <p class="dev-years-of-experience">★ Years of experience: ${dev.years_of_experience}</p>
+                        <p class="dev-country">★ Country: ${dev.country}</p>
+                        <p class="dev-rating">★ Rating: ${dev.rating}</p>
+                    </div>
+                `;
 
-                var websites_created_element = document.getElementsByClassName("dev-websites-created")[i]
-                websites_created_element.textContent += item.total_websites_created
-
-                var experience_element = document.getElementsByClassName("dev-years-of-experience")[i]
-                experience_element.textContent += item.years_of_experience
-
-                var country_element = document.getElementsByClassName("dev-country")[i]
-                country_element.textContent += item.country
-
-                var rating_element = document.getElementsByClassName("dev-rating")[i]
-                rating_element.textContent += item.rating
+                container.appendChild(podium);
             });
 
             // Get the table body element by ID
@@ -156,7 +135,7 @@ function calculateDevelopersByExperience(data)
 }
 
 
-// Function to show hide displayed rows
+// Function tohide displayed rows
 function hideRows()
 {
     const displayedRows = document.querySelectorAll(".displayed-row");
@@ -168,8 +147,6 @@ function hideRows()
     const table = document.getElementById("dataTable")
     table.classList.remove("bigTable");
     table.classList.add("smallTable");
-
-    sr.reveal(".smallTable", {delay: 0, duration: 1000, origin: "bottom"});
 }
 
 
@@ -185,8 +162,6 @@ function showHiddenRows()
     const table = document.getElementById("dataTable")
     table.classList.remove("smallTable");
     table.classList.add("bigTable");
-
-    sr.reveal(".bigTable", {delay: 0, duration: 1000, origin: "bottom"});
 }
 
 
@@ -206,6 +181,21 @@ function expandAndContract()
         hideRows();
     }
 }
+
+// Hamburger menu
+function toggleMenu()
+{
+    const menu = document.getElementById("sideMenu");
+    menu.classList.toggle("active");
+}
+
+window.addEventListener('resize', () => {
+    const sideMenu = document.querySelector('.side-menu');
+    if (window.innerWidth > 800)
+    {
+        sideMenu.classList.remove('active');
+    }
+});
 // <------------------------------------------------- (FINISH) Functions -------------------------------------------------> //
 
 

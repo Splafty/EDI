@@ -11,17 +11,35 @@
 </head>
 
 <body>
+    <!-- --------hamburger menu-------- -->
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="side-menu" id="sideMenu">
+            <i class="fa-solid fa-x menu-x" onclick="toggleMenu()"></i>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#ranking">Ranking</a></li>
+                <li><a href="#charts">Charts</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- --------------------------home-------------------------- -->
     <div id="home">
         <div class="container">
             <header>
-                    <a href="#home" id="logo">TopDevs</a>
+                <a href="#home" id="logo">TopDevs</a>
+                <div class="navigation-menu">
                     <ul id="navigation-menu">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#ranking">Ranking</a></li>
                         <li><a href="#charts">Charts</a></li>
                         <li><a href="#about">About</a></li>
                     </ul>
+                </div>
             </header>
             <div class="home-text">
                 <h1>TopDevs</h1>
@@ -32,137 +50,14 @@
         </div>
     </div>
 
-    <!-- --------------------------ranking-------------------------- -->
+    <!-- ------------------------ranking------------------------- -->
     <div id="ranking">
         <div id="ranking-container" class="container">
             <h1 class="section-title">Ranking</h1>
             <h2 class="subtitle">Welcome to TopDevs, the definitive platform that shines a spotlight on elite web developers. Here, we curate and showcase the exceptional talents defining the digital landscape. Explore a curated ranking of top-tier developers, where innovation converges with expertise in every line of code. Join us in celebrating the brilliance of web development and discover the architects shaping the future of the online world.</h2>
-
-            <div class="ranking-grid" id="ranking-grid-row-1">
-                <div class="podium">
-                    <h3 class="rank-number">🥇 Rank: 1</h3>
-                    <div class="portrait" id="portrait-1"></div>
-                    <h3 class="dev-name"></h3>
-                    <h4 class="dev-portfolio"></h4>
-                    <p class="dev-reviews">★ 5 star reviews: </p>
-                    <p class="dev-websites-created">★ Websites created: </p>
-                    <p class="dev-years-of-experience">★ Years of experience: </p>
-                    <p class="dev-country">★ Country: </p>
-                    <p class="dev-rating">★ Rating: </p>
-                </div>
-
-                <div class="podium">
-                    <h3 class="rank-number">🥈 Rank: 2</h3>
-                    <div class="portrait" id="portrait-2"></div>
-                    <h3 class="dev-name"></h3>
-                    <h4 class="dev-portfolio"></h4>
-                    <p class="dev-reviews">★ 5 star reviews: </p>
-                    <p class="dev-websites-created">★ Websites created: </p>
-                    <p class="dev-years-of-experience">★ Years of experience: </p>
-                    <p class="dev-country">★ Country: </p>
-                    <p class="dev-rating">★ Rating: </p>
-                </div>
-
-                <div class="podium">
-                    <h3 class="rank-number">🥉 Rank: 3</h3>
-                    <div class="portrait" id="portrait-3"></div>
-                    <h3 class="dev-name"></h3>
-                    <h4 class="dev-portfolio"></h4>
-                    <p class="dev-reviews">★ 5 star reviews: </p>
-                    <p class="dev-websites-created">★ Websites created: </p>
-                    <p class="dev-years-of-experience">★ Years of experience: </p>
-                    <p class="dev-country">★ Country: </p>
-                    <p class="dev-rating">★ Rating: </p>
-                </div>
-
-                <div class="podium">
-                    <h3 class="rank-number">Rank: 4</h3>
-                    <div class="portrait" id="portrait-4"></div>
-                    <h3 class="dev-name"></h3>
-                    <h4 class="dev-portfolio"></h4>
-                    <p class="dev-reviews">★ 5 star reviews: </p>
-                    <p class="dev-websites-created">★ Websites created: </p>
-                    <p class="dev-years-of-experience">★ Years of experience: </p>
-                    <p class="dev-country">★ Country: </p>
-                    <p class="dev-rating">★ Rating: </p>
-                </div>
-
-                <div class="podium">
-                    <h3 class="rank-number">Rank: 5</h3>
-                    <div class="portrait" id="portrait-5"></div>
-                    <h3 class="dev-name"></h3>
-                    <h4 class="dev-portfolio"></h4>
-                    <p class="dev-reviews">★ 5 star reviews: </p>
-                    <p class="dev-websites-created">★ Websites created: </p>
-                    <p class="dev-years-of-experience">★ Years of experience: </p>
-                    <p class="dev-country">★ Country: </p>
-                    <p class="dev-rating">★ Rating: </p>
-                </div>
+            <div id="ranking-grid" class="ranking-grid">
+                <!--There will be a top 10 created in JS here-->
             </div>
-
-            <!-- Second row -->
-            <div class="ranking-grid" id="ranking-grid-row-2">
-                <div class="podium">
-                    <h3 class="rank-number">Rank: 6</h3>
-                    <div class="portrait" id="portrait-6"></div>
-                    <h3 class="dev-name"></h3>
-                    <h4 class="dev-portfolio"></h4>
-                    <p class="dev-reviews">★ 5 star reviews: </p>
-                    <p class="dev-websites-created">★ Websites created: </p>
-                    <p class="dev-years-of-experience">★ Years of experience: </p>
-                    <p class="dev-country">★ Country: </p>
-                    <p class="dev-rating">★ Rating: </p>
-                </div>
-
-                <div class="podium">
-                    <h3 class="rank-number">Rank: 7</h3>
-                    <div class="portrait" id="portrait-7"></div>
-                    <h3 class="dev-name"></h3>
-                    <h4 class="dev-portfolio"></h4>
-                    <p class="dev-reviews">★ 5 star reviews: </p>
-                    <p class="dev-websites-created">★ Websites created: </p>
-                    <p class="dev-years-of-experience">★ Years of experience: </p>
-                    <p class="dev-country">★ Country: </p>
-                    <p class="dev-rating">★ Rating: </p>
-                </div>
-
-                <div class="podium">
-                    <h3 class="rank-number">Rank: 8</h3>
-                    <div class="portrait" id="portrait-8"></div>
-                    <h3 class="dev-name"></h3>
-                    <h4 class="dev-portfolio"></h4>
-                    <p class="dev-reviews">★ 5 star reviews: </p>
-                    <p class="dev-websites-created">★ Websites created: </p>
-                    <p class="dev-years-of-experience">★ Years of experience: </p>
-                    <p class="dev-country">★ Country: </p>
-                    <p class="dev-rating">★ Rating: </p>
-                </div>
-
-                <div class="podium">
-                    <h3 class="rank-number">Rank: 9</h3>
-                    <div class="portrait" id="portrait-9"></div>
-                    <h3 class="dev-name"></h3>
-                    <h4 class="dev-portfolio"></h4>
-                    <p class="dev-reviews">★ 5 star reviews: </p>
-                    <p class="dev-websites-created">★ Websites created: </p>
-                    <p class="dev-years-of-experience">★ Years of experience: </p>
-                    <p class="dev-country">★ Country: </p>
-                    <p class="dev-rating">★ Rating: </p>
-                </div>
-
-                <div class="podium">
-                    <h3 class="rank-number">Rank: 10</h3>
-                    <div class="portrait" id="portrait-10"></div>
-                    <h3 class="dev-name"></h3>
-                    <h4 class="dev-portfolio"></h4>
-                    <p class="dev-reviews">★ 5 star reviews: </p>
-                    <p class="dev-websites-created">★ Websites created: </p>
-                    <p class="dev-years-of-experience">★ Years of experience: </p>
-                    <p class="dev-country">★ Country: </p>
-                    <p class="dev-rating">★ Rating: </p>
-                </div>
-            </div>
-
         </div>
     </div>
         
@@ -224,10 +119,10 @@
             
             <div class="grid-container">
                 <div class="grid-item">
-                    <div class="row">
+
                         <!-- -------------------------Piotr Henzolt-------------------------- -->
                         <div class="about-col-1">
-                            <img id="about-image" src="images/Piotr_Henzolt.png">
+                            <img id="about-image-PH" src="images/Piotr_Henzolt.png">
                         </div>
         
                         <div class="about-col-2">
@@ -274,14 +169,14 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+
                 </div>
                 
                 <div class="grid-item">
-                    <div class="row">
+
                         <!-- -------------------------Kacper Knapczyk-------------------------- -->
                         <div class="about-col-1">
-                            <img id="about-image" src="images/Kacper_Knapczyk.png">
+                            <img id="about-image-KK" src="images/Kacper_Knapczyk.png">
                         </div>
         
                         <div class="about-col-2">
@@ -325,14 +220,14 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+
                 </div>
 
                 <div class="grid-item">
-                    <div class="row">
+
                         <!-- -------------------------Szymon Cebula-------------------------- -->
                         <div class="about-col-1">
-                            <img id="about-image" src="images/Szymon_Cebula.png">
+                            <img id="about-image-SC" src="images/Szymon_Cebula.png">
                         </div>
                         <div class="about-col-2">
                             <h1 class="name-surname">Szymon Cebula</h1>
@@ -371,14 +266,14 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+
                 </div>
 
                 <div class="grid-item">
-                    <div class="row">
+
                         <!-- -------------------------Piotr Szarek-------------------------- -->
                         <div class="about-col-1">
-                            <img id="about-image" src="images/Piotr_Szarek.png">
+                            <img id="about-image-PS" src="images/Piotr_Szarek.png">
                         </div>
         
                         <div class="about-col-2">
@@ -424,7 +319,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+
                 </div>
             </div>
 
@@ -437,7 +332,7 @@
 
             <div class="row">
                 <!-- mini navbar -->
-                <div class="footer-col-1">
+                <div class="footer-col-1 internet-column">
                 <h2>Navigation</h2>
                     <ul>
                         <li><a href="#home">Home</a></li>
@@ -448,7 +343,7 @@
                 </div>
 
                 <!-- internet -->
-                <div class="footer-col-2">
+                <div class="footer-col-2 internet-column">
                     <h2>Internet</h2>
                     <!-- search -->
                     <form action="http://google.com" target="_blank">
@@ -459,7 +354,7 @@
                 </div>
 
                 <!-- contact -->
-                <div class="footer-col-3">
+                <div class="footer-col-3 internet-column">
                     <h2>Contact</h2>
                     <p>TopDevs<br>TopDevs@gmail.com</p>
                     <div class="social-media">
@@ -473,19 +368,15 @@
 
         </div>
     </div>
-
-    <!-- -------------scrollreveal------------- -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- ----------------charts---------------- -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- --------------javascript-------------- -->
-    <script src="./script.js"></script>
-
+    
     <!-- -------------font-awesome------------- -->
     <script src="https://kit.fontawesome.com/2d8fe6a7d0.js" crossorigin="anonymous"></script>
 
+    <!-- ----------------charts---------------- -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- --------------javascript-------------- -->
+    <script src="./script.js"></script>
 </body>
 
 </html>
