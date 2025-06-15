@@ -172,7 +172,7 @@ function expandAndContract()
 
     if (button.innerHTML === "Show more")
     {
-        button.innerHTML = "Hide";
+        button.innerHTML = "Show less";
         showHiddenRows()
     } 
     else 
@@ -218,7 +218,7 @@ function loadCharts(loadedData, developer_countries, developer_experience)
     new Chart(chart1, {
     type: "bar",
         data: {
-            labels: Object.keys(developer_experience).map(year =>  `${year} years of experience`),
+            labels: Object.keys(developer_experience).map(year =>  `${year} years`),
             datasets: [{
                 label: "Number of developers",
                 data: Object.values(developer_experience),
@@ -228,6 +228,8 @@ function loadCharts(loadedData, developer_countries, developer_experience)
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 x: {
                     ticks: {
@@ -245,7 +247,7 @@ function loadCharts(loadedData, developer_countries, developer_experience)
             plugins: {
                 title: {
                     display: true,
-                    text: "Number of developers with different experience",
+                    text: "Developers with different experience",
                     font: {
                         size: 18
                     },
@@ -277,10 +279,12 @@ function loadCharts(loadedData, developer_countries, developer_experience)
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 title: {
                     display: true,
-                    text: "Number of developers from each country",
+                    text: "Developers from each country",
                     font: {
                         size: 18
                     },
