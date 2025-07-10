@@ -63,13 +63,13 @@ body
 
 p
 {
-    font-size: clamp(1rem, 2vw, 1.125rem)
+    font-size: clamp(1rem, 1rem + 1vw, 1.125rem);
 }
 
 .section-title
 {
     margin-top: 40px;
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(2rem, 2rem + 1.5vw, 4rem);
     font-weight: 600;
     text-align: left;
 }
@@ -77,7 +77,7 @@ p
 .subtitle
 {
     margin-top: 4px;
-    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    font-size: clamp(1.125rem, 1rem + 1.2vw, 1.5rem);
     font-weight: 400;
     text-align: left;
 }
@@ -86,7 +86,7 @@ p
 .menu-icon
 {
     display: none;
-    font-size: 30px;
+    font-size: 1.875rem;
     cursor: pointer;
     color: white;
     z-index: 102;
@@ -96,7 +96,7 @@ p
 
 .menu-x
 {
-    font-size: 30px;
+    font-size: 1.875rem;
     cursor: pointer;
     color: white;
     z-index: 102;
@@ -200,7 +200,7 @@ header #logo
     color: #ffffff;
     text-decoration: none;
     font-weight: 800;
-    font-size: clamp(1.5rem, 1rem + 1vw, 30px);
+    font-size: clamp(1.5rem, 1rem + 1vw, 1.875rem);
     transition: 0.5s;
 }
 
@@ -221,7 +221,7 @@ header ul li a
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 1.25rem;
     position: relative;
 }
 
@@ -269,12 +269,12 @@ header ul li a:hover::after
 
 .home-text h1
 {
-    font-size: clamp(3rem, 12vw, 12.5rem);
+    font-size: clamp(3rem, 3rem + 4vw, 12.5rem);
 }
 
 .home-text h2
 {
-    font-size: clamp(1.5rem, 5vw, 3.125rem);
+    font-size: clamp(1.5rem, 1.5rem + 1.8vw, 3.125rem);
     margin-bottom: 50px;
 }
 
@@ -282,7 +282,7 @@ header ul li a:hover::after
 {
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     cursor: pointer;
     padding: clamp(0.75rem, 2vh, 1.25rem) clamp(2rem, 10vw, 8rem);
     background-color: #2b8be6;
@@ -467,7 +467,7 @@ table td
 {
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     cursor: pointer;
     padding: clamp(0.75rem, 2vh, 1.25rem) clamp(2rem, 10vw, 8rem);
     background-color: #2b8be6;
@@ -529,7 +529,7 @@ table td
 {
     background-color: #232323;
     border-radius: 20px;
-    font-size: 30px;
+    font-size: 1.875rem;
     text-align: left;
     max-width: 600px;
     min-width: 360px;
@@ -566,7 +566,7 @@ table td
 .name-surname
 {
     margin: 2%;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #2392fb;
     text-align: center;
@@ -617,7 +617,7 @@ table td
 
 .tab-contents ul li
 {
-    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    font-size: clamp(0.8rem, 0.7rem + 0.8vw, 0.95rem);
     list-style: none;
     margin: 10px 0;
 }
@@ -625,7 +625,7 @@ table td
 .tab-contents ul li span
 {
     color: #2392fb; 
-    font-size: clamp(0.9rem, 2.8vw, 1rem);
+    font-size: clamp(0.9rem, 0.8rem + 0.9vw, 1rem);
     font-weight: 550;
 }
 
@@ -711,7 +711,7 @@ table td
 
 #footer .container .row h2
 {
-    margin-bottom: clamp(1rem, 1rem + 1vw, 2rem);
+    margin-bottom: clamp(1rem, 1rem + 1vw, 1.25rem);
     letter-spacing: 1px;
 }
 
@@ -741,7 +741,7 @@ table td
 {
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1.25rem;
     transition: 0.5s;
 }
 
@@ -753,7 +753,7 @@ table td
 /* <!-- -------footer-col-2------- --> */
 .footer-col-2 .search-text
 {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: clamp(1rem, 1rem + 0.7vw, 1.25rem);
     font-weight: 550;
 }
 
@@ -797,7 +797,7 @@ table td
 {
     color: white;
     cursor: pointer;
-    font-size: clamp(1.5rem, 2vw, 1.625rem);
+    font-size: clamp(1.5rem, 1.3rem + 0.5vw, 1.625rem);
     margin: 10px;
     transition: 0.5s;
 }
