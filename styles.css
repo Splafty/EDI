@@ -2,12 +2,37 @@
   outline: 1px solid red;
 } */
 
+/* <!-- ------------colors------------ --> */
+
+:root
+{
+    /* <!-- ---general--- --> */
+    --shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
+
+    /* <!-- ---dark-mode--- --> */
+    --primary: hsl(210, 95%, 60%);
+    --primary-dark: hsl(210, 95%, 55%);
+    --primary-very-dark: hsl(210, 95%, 45%);
+    --bg-dark: hsl(0 0% 0%);
+    --bg: hsl(0 0% 5%);
+    --bg-light: hsl(0 0% 10%);
+    --bg-very-light: hsl(0 0% 15%);
+    --text: hsl(0 0% 95%);
+    --text-muted: hsl(0 0% 70%);
+    --border: hsl(0 0% 30%);
+    --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+    --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+    --highlight: hsl(0 0% 60%);
+    --border-card: solid 1px var(--border);
+}
+
+
 /* <!-- ------------scrollbar------------ --> */
 
 /* Firefox */
 * {
     scrollbar-width: auto;
-    scrollbar-color: #2392fb #3d3d3d;
+    scrollbar-color: var(--primary-dark) var(--bg-very-light);
 }
 
 /* Chrome, Edge, and Safari */
@@ -18,12 +43,12 @@
 
 *::-webkit-scrollbar-track
 {
-    background: #000000;
+    background: var(--bg-dark);
 }
 
 *::-webkit-scrollbar-thumb
 {
-    background-color: #2392fb;
+    background-color: var(--primary-dark);
 }
 
 /* Cursor pointer on hover for scrollbar thumb */
@@ -48,8 +73,8 @@ html
 
 body
 {
-    background: black;
-    color: #ffffff;
+    background: var(--bg-dark);
+    color: var(--text);
 }
 
 .container
@@ -88,25 +113,25 @@ p
     display: none;
     font-size: 1.875rem;
     cursor: pointer;
-    color: white;
+    color: var(--text);
     z-index: 102;
     position: fixed;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .menu-x
 {
     font-size: 1.875rem;
     cursor: pointer;
-    color: white;
+    color: var(--text);
     z-index: 102;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .menu-icon:hover,
 .menu-x:hover
 {
-    color: rgb(43, 139, 230);
+    color: var(--primary-dark);
 }
 
 .side-menu
@@ -116,7 +141,7 @@ p
     right: -100%;
     width: 70%;
     height: 100vh;
-    background: black;
+    background: var(--bg-dark);
     padding: 20px 20px;
     box-shadow: -2px 0 8px rgba(0,0,0,0.5);
     transition: right 0.3s ease;
@@ -140,7 +165,7 @@ p
 
 nav ul li a
 {
-    color: #ffffff;
+    color: var(--text);
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
@@ -152,11 +177,11 @@ nav ul li a::after
     content: "";
     width: 0;
     height: 3px;
-    background: #2392fb;
+    background: var(--primary-dark);
     position: absolute;
     left: 0;
     bottom: -6px;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 nav ul li a:hover::after
@@ -183,7 +208,7 @@ nav ul li a:hover::after
 /* <!-- -------------navigation menu------------- --> */
 header
 {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,rgba(255,255,255,0)), color-stop(80%, #000000));
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,rgba(255,255,255,0)), color-stop(80%, var(--bg-dark)));
     padding: 20px 10%;
     position: fixed;
     top: 0;
@@ -197,16 +222,16 @@ header
 
 header #logo
 {
-    color: #ffffff;
+    color: var(--text);
     text-decoration: none;
     font-weight: 800;
     font-size: clamp(1.5rem, 1rem + 1vw, 1.875rem);
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 header #logo:hover
 {
-    color: #2b8be6;
+    color: var(--primary-dark);
 }
 
 header ul li
@@ -218,7 +243,7 @@ header ul li
 
 header ul li a
 {
-    color: #ffffff;
+    color: var(--text);
     text-decoration: none;
     font-weight: 600;
     font-size: 1.25rem;
@@ -230,11 +255,11 @@ header ul li a::after
     content: "";
     width: 0;
     height: 3px;
-    background: #2392fb;
+    background: var(--primary-dark);
     position: absolute;
     left: 0;
     bottom: -6px;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 header ul li a:hover::after
@@ -285,17 +310,17 @@ header ul li a:hover::after
     font-size: 1.25rem;
     cursor: pointer;
     padding: clamp(0.75rem, 2vh, 1.25rem) clamp(2rem, 10vw, 8rem);
-    background-color: #2b8be6;
-    color: #ffffff;
+    background-color: var(--primary-dark);
+    color: var(--text);
     border-radius: 100px;
     border: 0;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .home-text a:hover
 {
-    color: rgb(43, 139, 230);
-    background-color: #ffffff;
+    color: var(--primary-dark);
+    background-color: var(--text);
 }
 
 /* <!-- -------------ranking------------- --> */
@@ -329,7 +354,7 @@ header ul li a:hover::after
     width: 100%;
     max-width: 400px;
     border-radius: 22px;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .dev-data
@@ -427,8 +452,8 @@ header ul li a:hover::after
 
 table 
 {
-    border-top: 3px solid white;
-    border-bottom: 3px solid white;
+    border-top: 3px solid var(--text);
+    border-bottom: 3px solid var(--text);
     border-collapse: collapse;
     width: 100%;
     margin-top: 20px;
@@ -443,8 +468,8 @@ table th
 
 table td 
 {
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
+    border-top: 2px solid var(--text);
+    border-bottom: 2px solid var(--text);
     padding: 11px;
     text-align: center;
     font-size: 1rem;
@@ -470,17 +495,17 @@ table td
     font-size: 1.25rem;
     cursor: pointer;
     padding: clamp(0.75rem, 2vh, 1.25rem) clamp(2rem, 10vw, 8rem);
-    background-color: #2b8be6;
-    color: #ffffff;
+    background-color: var(--primary-dark);
+    color: var(--text);
     border-radius: 100px;
     border: 0;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 #showRanking:hover
 {
-    color: rgb(43, 139, 230);
-    background-color: #ffffff;
+    color: var(--primary-dark);
+    background-color: var(--text);
 }
 
 /* <!-- -------------charts------------- --> */
@@ -495,7 +520,7 @@ table td
 #chart1, #chart2 
 {
     position: relative;
-    background-color: #232323;
+    background-color: var(--bg-very-light);
     height: clamp(22rem, 60vw, 34rem);
     display: flex;
     align-items: center;
@@ -527,7 +552,7 @@ table td
 
 .grid-item 
 {
-    background-color: #232323;
+    background-color: var(--bg-light);
     border-radius: 20px;
     font-size: 1.875rem;
     text-align: left;
@@ -568,7 +593,7 @@ table td
     margin: 2%;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #2392fb;
+    color: var(--primary-dark);
     text-align: center;
 }
 
@@ -602,11 +627,11 @@ table td
     content: "";
     width: 0;
     height: 3px;
-    background: #2392fb;
+    background: var(--primary-dark);
     position: absolute;
     left: 0;
     bottom: -6px;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .tab-links:hover::after,
@@ -624,7 +649,7 @@ table td
 
 .tab-contents ul li span
 {
-    color: #2392fb; 
+    color: var(--primary-dark); 
     font-size: clamp(0.9rem, 0.8rem + 0.9vw, 1rem);
     font-weight: 550;
 }
@@ -706,7 +731,7 @@ table td
     padding-bottom: 40px;
     margin-top: 80px;
     width: 100%;
-    background: #232323;
+    background: var(--bg-light);
 }
 
 #footer .container .row h2
@@ -739,15 +764,15 @@ table td
 
 .footer-col-1 ul li a
 {
-    color: white;
+    color: var(--text);
     text-decoration: none;
     font-size: 1.25rem;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .footer-col-1 ul li a:hover
 {
-    color: rgb(43, 139, 230);
+    color: var(--primary-dark);
 }
 
 /* <!-- -------footer-col-2------- --> */
@@ -762,7 +787,7 @@ table td
     font-size: 1rem;
     text-align: center;
     margin: 10px;
-    border-color: white;
+    border-color: var(--text);
     border-radius: 5px;
     width: clamp(13rem, 12rem + 5vw, 18rem);
     height: clamp(2rem, 5vh, 2.5rem);
@@ -775,16 +800,16 @@ table td
     cursor: pointer;
     padding: 10px 25px;
     background-color: transparent;
-    color: white;
+    color: var(--text);
     border-radius: 10px;
-    border-color: white;
-    transition: 0.5s;
+    border-color: var(--text);
+    transition: 0.4s;
 }
 
 .footer-col-2 .search-button:hover
 {
-    color: rgb(43, 139, 230);
-    border-color: rgb(43, 139, 230);
+    color: var(--primary-dark);
+    border-color: var(--primary-dark);
 }
 
 /* <!-- -------footer-col-3------- --> */
@@ -795,14 +820,14 @@ table td
 
 .footer-col-3 .social-media i
 {
-    color: white;
+    color: var(--text);
     cursor: pointer;
     font-size: clamp(1.5rem, 1.3rem + 0.5vw, 1.625rem);
     margin: 10px;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .footer-col-3 .social-media i:hover
 {
-    color: rgb(43, 139, 230);
+    color: var(--primary-dark);
 }
